@@ -31,24 +31,27 @@ export default function Home({
 
         <div className="flex flex-col my-2 mx-auto w-full">
           <div className="md:pl-20 w-full">
-            <div className="py-3 w-full dark:bg-neutral-900">
-              <button
-                id="disq_load"
-                onClick={() => {
-                  loadDisque(
-                    "lynxHome",
-                    "https://lynxscans.com/",
-                    "testsite-q2cy98osnk"
-                  );
-                }}
-                className="p-2 bg-sky-500 dark:bg-neutral-900 text-white rounded-lg center w-full hover:bg-sky-700"
-              >
-                Click to View Comment
-              </button>
-              <div
-                id="disqus_thread"
-                className="text-sky-400 px-2 w-full rounded-md bg-transparent dark:bg-neutral-900 "
-              ></div>
+            <div className="py-3 w-full ">
+              <div className="rounded-xl">
+                <button
+                  id="disq_load"
+                  onClick={() => {
+                    loadDisque(
+                      "komikoHome",
+                      "https://komiko.leaveitblank.co/",
+                      "testsite-q2cy98osnk"
+                    );
+                  }}
+                  className="py-2 bg-sky-500 dark:bg-neutral-900 text-white rounded-lg center w-full hover:bg-sky-700"
+                >
+                  Click to View Comment
+                </button>
+
+                <div
+                  id="disqus_thread"
+                  className="text-sky-300 bg-sky-200 dark:bg-neutral-900 dark:text-sky-300 px-3 rounded-lg"
+                ></div>
+              </div>
             </div>
           </div>
         </div>

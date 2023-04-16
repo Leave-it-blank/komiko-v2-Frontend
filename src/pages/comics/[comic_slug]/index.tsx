@@ -4,8 +4,17 @@ import { dateFromMMDOYYYY, dateFromNow } from "@/utils/dates";
 import ComicProfile from "@/components/comics/ComicProfile";
 import { AiOutlineTag } from "react-icons/ai";
 import Support from "@/components/layouts/Support";
+import { loadDisque } from "@/utils/disque";
+import { useEffect } from "react";
 
 export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
+  useEffect(() => {
+    loadDisque(
+      `komiko ${comic["title"]}`,
+      `https://komiko.leaveitblank.co/comics/${comic["title"]}`,
+      "testsite-q2cy98osnk"
+    );
+  }, []);
   return (
     <div className="max-w-screen-2xl py-10 w-full min-h-screen mx-auto">
       <div className="flex flex-col xl:flex-row justify-evenly sm:mx-10 gap-2">
@@ -20,7 +29,7 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
             <div className="py-3"></div>
             <div
               id="disqus_thread"
-              className=" dark:text-sky-300 bg-transparent "
+              className=" text-sky-300 bg-sky-200 dark:bg-neutral-900 dark:text-sky-300  "
             ></div>
           </div>
           <div

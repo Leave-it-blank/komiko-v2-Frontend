@@ -1,6 +1,6 @@
 import { CHAPTER_APITYPE } from "@/utils/types";
 import { useEffect, useState } from "react";
-
+import { loadDisque } from "@/utils/disque";
 import { getChapter } from "@/utils/api";
 import BasicReader from "@/components/reader/BasicReader";
 import LoadingSpinner from "@/components/layouts/LoadingSpinner";
@@ -8,6 +8,13 @@ import AdvanceReader from "@/components/reader/AdvanceReader";
 
 function ChapterPage({ chapter }: CHAPTER_APITYPE) {
   const [reader, setReader] = useState("loading");
+  useEffect(() => {
+    loadDisque(
+      `komiko ${chapter["comic_titleSlug"]}`,
+      `https://komiko.leaveitblank.co/comics/${chapter["comic_titleSlug"]}/volume/${chapter["volume_id"]}/chapter/${chapter["ch_id"]}`,
+      "testsite-q2cy98osnk"
+    );
+  }, [chapter]);
   useEffect(() => {
     readChapter(chapter.ch_id);
   });
@@ -75,6 +82,17 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
 
         {reader === "basic" && <BasicReader chapter={chapter} />}
         {reader === "advanced" && <AdvanceReader chapter={chapter} />}
+        <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto  bg-sky-200 dark:bg-neutral-900 py-5   rounded-lg min-w-fit px-5 sm:px-10">
+          {/* <!-- here we will put description inside box --> */}
+          <h3 className="text-xl font-roboto p-1   w-full text-left max-w-md   font-bold  text-sky-900 dark:text-gray-100">
+            {"Comment Section"}
+          </h3>
+          <div className="py-3"></div>
+          <div
+            id="disqus_thread"
+            className=" text-sky-300 bg-sky-200 dark:bg-neutral-900 dark:text-sky-300 "
+          ></div>
+        </div>
       </div>
     </>
   );
