@@ -103,7 +103,11 @@ export default ChapterPage;
 export async function getStaticPaths() {
   const paths = [
     {
-      params: { comic_slug: "", volume_id: "0", chapter_id: "0" },
+      params: {
+        comic_slug: "5007-the-story-of-a-low-rank-soldier-becoming-a-monarch",
+        volume_id: "2",
+        chapter_id: "109",
+      },
     },
   ];
   return { paths, fallback: "blocking" };
