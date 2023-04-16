@@ -266,14 +266,14 @@ function ComicProfile({ comic }: ComicsType) {
                         readChapter(chapter.id);
                       }}
                     >
-                      <div className="   col-span-1 flex grow flex-row justify-start items-center p-3 rounded-md bg-gray-100 dark:bg-neutral-800 gap-2 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-600 cursor-pointer">
+                      <div className="   col-span-1 flex grow flex-row justify-start items-center p-3 rounded-md bg-sky-400 dark:bg-neutral-800 gap-2 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-600 cursor-pointer">
                         <div className=" select-none first-letter:rounded-xl shrink-0">
                           <p
                             id={chapter.id + "_chapter_id_read"}
                             className="hidden"
                           >
                             <AiOutlineEye
-                              className="  h-8 w-8  cursor-pointer focus:outline-none focus:ring-2 text-sky-300 rounded-md"
+                              className="  h-8 w-8  cursor-pointer focus:outline-none focus:ring-2 text-sky-600 dark:text-sky-300 rounded-md"
                               aria-hidden="true"
                             />{" "}
                           </p>
@@ -283,7 +283,7 @@ function ComicProfile({ comic }: ComicsType) {
                           >
                             {" "}
                             <AiOutlineEyeInvisible
-                              className="h-8 w-8  cursor-pointer focus:outline-none focus:ring-2 text-red-300 rounded-md"
+                              className="h-8 w-8  cursor-pointer focus:outline-none focus:ring-2 text-red-500 rounded-md"
                               aria-hidden="true"
                             />
                           </p>

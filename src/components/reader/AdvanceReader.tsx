@@ -20,9 +20,9 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
       let prev = document.getElementById("prev");
       let next = document.getElementById("next");
       if (prev && next) {
-        console.log("prev", prev);
-        console.log("next", next);
-        console.log("height", height);
+        //  console.log("prev", prev);
+        // console.log("next", next);
+        // console.log("height", height);
         prev.style.height = height + "px";
         next.style.height = height + "px";
       }
@@ -69,7 +69,7 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
 
       <FullScreen handle={handle}>
         {" "}
-        <small className="text-neurtal-500 dark:text-white flex flex-row gap-3 px-2 items-center ">
+        <small className="text-sky-900 dark:text-white flex flex-row gap-3 px-2 items-center ">
           <div className=" text-xl ">{chapter.comic_title}</div>
           <div> ●</div>
 

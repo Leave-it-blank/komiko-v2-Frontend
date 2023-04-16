@@ -26,10 +26,10 @@ function HorizontalCard({ comic }: CardTYPE) {
           <div className="flex flex-row rounded-md w-full">
             <Link href={"/comics/" + comic.comic_titleslug}>
               <div className="relative backdrop:bg-yellow-400">
-                <div className="select-none mx-auto flex flex-1 justify-center rounded-xl  h-40 w-24">
+                <div className="select-none mx-auto flex flex-1 justify-center rounded-xl  h-36 w-24">
                   {" "}
                   <Image
-                    className="rounded-xl  object-fit overflow-hidden  h-40 min-w-full w-24 select-none"
+                    className="rounded-xl  object-fit overflow-hidden  h-36 min-w-full w-24 select-none"
                     alt={comic.comic_titleslug}
                     sizes="13vw"
                     src={comic.comic_thumb}

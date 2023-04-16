@@ -11,7 +11,7 @@ function BasicReader({ chapter }: CHAPTER_APITYPE) {
           <div>Chapter {chapter.ch_no}</div>
         </div>
       </div> */}
-      <small className="text-neurtal-500 dark:text-white flex flex-row gap-3 px-2 items-center ">
+      <small className="text-sky-900 dark:text-white flex flex-row gap-3 px-2 items-center ">
         <div className=" text-xl ">{chapter.comic_title}</div>
         <div> ●</div>
 
