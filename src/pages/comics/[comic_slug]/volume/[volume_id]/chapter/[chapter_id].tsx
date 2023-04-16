@@ -90,7 +90,7 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
           <div className="py-3"></div>
           <div
             id="disqus_thread"
-            className=" text-sky-300 bg-sky-200 dark:bg-neutral-900 dark:text-sky-300 "
+            className=" text-sky-900 bg-sky-200 dark:bg-neutral-900 dark:text-sky-300 "
           ></div>
         </div>
       </div>

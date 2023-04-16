@@ -49,7 +49,7 @@ export default function Home({
 
                 <div
                   id="disqus_thread"
-                  className="text-sky-300 bg-sky-200 dark:bg-neutral-900 dark:text-sky-300 px-3 rounded-lg"
+                  className="text-sky-900 bg-sky-200 dark:bg-neutral-900 dark:text-sky-300 px-3 rounded-lg"
                 ></div>
               </div>
             </div>
