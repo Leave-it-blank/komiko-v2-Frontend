@@ -25,7 +25,7 @@ function Pagination({ links }: any) {
                 )}
                 {link.url !== null && !link.active && (
                   <Link
-                    className="  mr-1 px-4 py-3 text-sm leading-4 border rounded  text-gray-400 dark:text-white hover:bg-purple-700 hover:text-white dark:hover:text-gray-800 focus:border-purple-500 focus:text-purple-500"
+                    className="  mr-1 px-4 py-3 text-sm leading-4 border rounded  text-gray-400 dark:text-white hover:bg-purple-700 hover:text-white dark:hover:text-gray-100 focus:border-purple-500 focus:text-purple-500"
                     href={link.url}
                   >
                     <DynamicHTML text={link.label} />{" "}
