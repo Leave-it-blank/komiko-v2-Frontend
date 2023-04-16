@@ -14,7 +14,7 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic["title"]}`,
       "testsite-q2cy98osnk"
     );
-  }, []);
+  }, [comic]);
   return (
     <div className="max-w-screen-2xl py-10 w-full min-h-screen mx-auto">
       <div className="flex flex-col xl:flex-row justify-evenly sm:mx-10 gap-2">
