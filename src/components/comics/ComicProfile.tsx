@@ -292,7 +292,7 @@ function ComicProfile({ comic }: ComicsType) {
                           <div className="text-sm dark:text-gray-100 ">
                             {"Chapter " + chapter.number + " : "}
                           </div>
-                          <div className="text-sm dark:text-gray-300 ml-2">
+                          <div className="text-xs dark:text-gray-300 ml-2 ">
                             {chapter.name}
                           </div>
                         </div>

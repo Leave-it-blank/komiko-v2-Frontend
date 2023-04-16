@@ -5,6 +5,8 @@ import { HOMEPAGE_APITYPE } from "@/utils/types";
 import { getHomePage } from "../utils/api";
 import NewRelease from "../components/home/NewRelease";
 import TopComics from "@/components/home/TopComics";
+import Support from "@/components/layouts/Support";
+import { loadDisque } from "@/utils/disque";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +27,33 @@ export default function Home({
         </div>
         <div className="flex flex-col my-2 mx-auto">
           <TopComics recommended={recommended} />
+        </div>
+
+        <div className="flex flex-col my-2 mx-auto w-full">
+          <div className="md:pl-20 w-full">
+            <div className="py-3 w-full dark:bg-neutral-900">
+              <button
+                id="disq_load"
+                onClick={() => {
+                  loadDisque(
+                    "lynxHome",
+                    "https://lynxscans.com/",
+                    "testsite-q2cy98osnk"
+                  );
+                }}
+                className="p-2 bg-sky-500 dark:bg-neutral-900 text-white rounded-lg center w-full hover:bg-sky-700"
+              >
+                Click to View Comment
+              </button>
+              <div
+                id="disqus_thread"
+                className="text-sky-400 px-2 w-full rounded-md bg-transparent dark:bg-neutral-900 "
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div className="md:pl-20 ">
+          <Support />
         </div>
       </div>
     </div>

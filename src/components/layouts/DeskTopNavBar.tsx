@@ -80,7 +80,7 @@ function DeskTopNavBar() {
     <div className="hidden md:block ">
       {/* DeskTop */}
       <div
-        className="fixed h-screen w-20 px-2 py-20 md:flex flex-col justify-center items-center hidden  "
+        className="fixed h-screen w-20 px-2 py-28 md:flex flex-col justify-center items-center hidden  "
         id="desk_nav_bar"
       >
         <div className="flex flex-col justify-center items-center h-full  bg-sky-400  dark:bg-neutral-900 border-b border-r border-t border-sky-500 dark:border-black border-0.3 w-full  rounded-xl ">

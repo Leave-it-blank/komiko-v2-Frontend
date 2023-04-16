@@ -23,8 +23,8 @@ function DarkModeToggle() {
     <>
       <DarkModeSwitch
         className="relative inline-flex h-8 w-11 items-center rounded-full"
-        sunColor="sky"
-        moonColor="white"
+        sunColor="blue"
+        moonColor="blue"
         checked={darkMode}
         onChange={toggleDarkMode}
         size={30}

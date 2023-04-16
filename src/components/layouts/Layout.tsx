@@ -23,21 +23,24 @@ function Layout(props: {
 }) {
   return (
     <div className="relative">
-      <div className="fixed top-6 md:left-2 left-12 -translate-x-10 md:translate-x-0">
+      <DeskTopNavBar />
+      <main>{props.children}</main>
+      <Footer />
+      <MobileNavBar />
+      <div className="fixed top-6 md:left-2 left-12 -translate-x-10 md:translate-x-0 flex w-full justify-between flex-row items-center ">
         {" "}
         <Image
-          className="rounded-md cursor-pointer"
+          className="rounded-md cursor-pointer  -translate-y-2"
           width={80}
           quality={100}
           height={10}
           src="/logo.jpg"
           alt="lynxscans"
         />{" "}
+        <div className=" -translate-x-7 translate-y-2">
+          <DarkModeToggle />
+        </div>
       </div>
-      <DeskTopNavBar />
-      <main>{props.children}</main>
-      <Footer />
-      <MobileNavBar />
     </div>
   );
 }
