@@ -36,7 +36,7 @@ function VerticalCard({ comic }: CardTYPE) {
                     height="715"
                   />
                 </div>
-                {/* <div className="absolute top-1 left-1 right-0 text-md md:text-sm font-bold font-catamaran w-fit pr-2 max-w-2/3 ml-1 md:ml-0 text-gray-100 bg-purple-300 dark:bg-purple-500 opacity-95 mt-1 capitalize text-left select-none cursor-pointer flex items-center justify-center flex-0 rounded-md">
+                {/* <div className="absolute top-1 left-1 right-0 text-md md:text-sm font-bold font-catamaran w-fit pr-2 max-w-2/3 ml-1 md:ml-0 text-gray-100 bg-sky-300 dark:bg-sky-500 opacity-95 mt-1 capitalize text-left select-none cursor-pointer flex items-center justify-center flex-0 rounded-md">
                   <div className="mt-1 px-2 py-1">
                     {"  " + comic.comic_choice}
                   </div>
@@ -44,7 +44,7 @@ function VerticalCard({ comic }: CardTYPE) {
 
                 <div v-if="comic.chapter_count !== 0 && comic.volume_count !== 1">
                   <div className="absolute bottom-0 left-0 right-0 px-4 py-2 flex justify-start md:justify-center">
-                    <div className=" shrink-1 py-1 opacity-80 text-sm md:text-sm font-semibold mt-2 font-roboto capitalize  text-purple-400 text-center select-none cursor-pointer     border-purple-700  border-2 bg-black rounded-md w-fit px-3">
+                    <div className=" shrink-1 py-1 opacity-80 text-sm md:text-sm font-semibold mt-2 font-roboto capitalize  text-sky-400 text-center select-none cursor-pointer     border-sky-700  border-2 bg-black rounded-md w-fit px-3">
                       <p> {comic.chapterCount + " Chapters "}</p>
                     </div>
                   </div>
@@ -52,7 +52,7 @@ function VerticalCard({ comic }: CardTYPE) {
               </div>
               <div className="justify-end flex-none">
                 <div className="flex flex-col font-roboto py-4 px-4 md:px-1 text-zinc-600 sm:w-48">
-                  <div className="min-h-5 w-full text-xl md:text-md   text-left select-none cursor-pointer text-zinc-900 flex-none flex-0 dark:text-white   hover:text-purple-400 dark:hover:text-purple-500 font-bold">
+                  <div className="min-h-5 w-full text-xl md:text-md   text-left select-none cursor-pointer text-sky-500 flex-none flex-0 dark:text-white   hover:text-black dark:hover:text-sky-500 font-bold">
                     {comic.titleSlug}
                   </div>
 

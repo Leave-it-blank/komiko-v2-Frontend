@@ -5,6 +5,9 @@
 .bgdark{
   background: rgb(16, 16, 16) !important;
 }
+.bglight{
+  background: rgb(248, 242, 255) !important;
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -19,12 +22,17 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+ 
+
+.navigationdark {
+  background: rgb(24, 24, 24) !important;
+  border-right: 0.4px   solid rgb(40, 39, 39) !important;
+  border-top: 0.4px   solid rgb(40, 39, 39) !important;
+  border-bottom: 0.4px   solid rgb(40, 39, 39) !important;
+}
+.navigationlight {
+  background: hwb(272 43% 3%) !important;
+  border-right: 0.4px   solid rgb(40, 39, 39) !important;
+  border-top: 0.4px   solid rgb(40, 39, 39) !important;
+  border-bottom: 0.4px   solid rgb(40, 39, 39) !important;
 }

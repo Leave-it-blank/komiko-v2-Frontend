@@ -80,17 +80,17 @@ function MobileNavBar() {
         className="fixed flex flex-row bottom-0 h-20 w-full px-1"
         id="mob_nav_bar"
       >
-        <div className="flex flex-row justify-center w-full items-center  gap-3 bg-neutral-900 rounded-t-md">
+        <div className="flex flex-row justify-center w-full items-center  gap-3  bg-sky-400  dark:bg-neutral-900 border-b border-r border-t border-sky-500 dark:border-black border-0.3  rounded-t-md">
           {readerNav.map((item) =>
             item.current ? (
               <Link href={item.href} key={item.key}>
-                <div className="bg-purple-700 hover:bg-purple-500 rounded-md   w-full flex justify-center items-center p-3">
+                <div className="bg-sky-700 hover:bg-sky-500 rounded-md   w-full flex justify-center items-center p-3">
                   {item.icon}
                 </div>
               </Link>
             ) : (
               <Link href={item.href} key={item.key}>
-                <div className="hover:bg-purple-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
+                <div className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
                   {item.icon}
                 </div>
               </Link>
@@ -100,7 +100,7 @@ function MobileNavBar() {
       </div>
 
       <div
-        className=" fixed right-6 translate-x-1 translate-y-1  bottom-24  bg-red-500 p-2 rounded-xl text-white  hover:text-purple-100 hover:bg-purple-500 cursor-pointer"
+        className=" fixed right-6 translate-x-1 translate-y-1  bottom-24  bg-red-500 p-2 rounded-xl text-white  hover:text-sky-100 hover:bg-sky-500 cursor-pointer"
         onClick={navHandler}
       >
         <ArrowDownIcon className="  bottom-10 h-6 w-6  " id="close_nav_mob" />

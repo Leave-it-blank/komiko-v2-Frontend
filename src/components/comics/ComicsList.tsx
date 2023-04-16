@@ -44,10 +44,10 @@ function ComicsList({ chapters }: chapterData) {
     <>
       <div className="md:pl-20">
         <div className="flex flex-row justify-between px-4 w-full">
-          <h1 className="text-3xl px-2 pt-10 pb-2 font-roboto font-bold capitalize dark:text-white">
+          <h1 className="text-3xl px-2 pt-10 pb-2 font-roboto font-bold capitalize text-sky-900 dark:text-white">
             Latest
           </h1>
-          <button className="text-xl px-2 pt-10 pb-2 font-roboto font-bold capitalize dark:text-white">
+          <button className="text-xl px-2 pt-10 pb-2 font-roboto font-bold capitalize text-sky-900 dark:text-white">
             <ArrowsRightLeftIcon
               className=" h-5 w-5"
               onClick={() => layoutHandler()}

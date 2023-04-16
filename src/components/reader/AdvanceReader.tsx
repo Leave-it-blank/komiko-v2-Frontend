@@ -57,7 +57,7 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
         </small>
         <div onClick={exitHandlder}>
           <button
-            className=" rounded-md flex  justify-end bg-neutral-800 hover:bg-purple-500 text-white items-center px-3 py-2 gap-3"
+            className=" rounded-md flex  justify-end bg-neutral-800 hover:bg-sky-500 text-white items-center px-3 py-2 gap-3"
             onClick={handle.enter}
           >
             {" "}
@@ -88,7 +88,7 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
             onClick={handlePrev}
             className=" w-1/3 bg-black bg-opacity-0 hover:bg-opacity-25 opacity-0 hover:opacity-90  absolute left-0  flex justify-center items-center min-h-80 "
           >
-            <span className="text-purple-100   stroke-white stroke-2 text-xl md:text-5xl font-serif">
+            <span className="text-sky-100   stroke-white stroke-2 text-xl md:text-5xl font-serif">
               Prev{" "}
             </span>
           </button>
@@ -97,7 +97,7 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
             onClick={handleNext}
             className=" w-1/3 bg-black bg-opacity-0 hover:bg-opacity-25   absolute right-0 flex justify-center items-center opacity-0 hover:opacity-90 "
           >
-            <span className="text-purple-100   stroke-white stroke-2 text-xl md:text-5xl font-serif">
+            <span className="text-sky-100   stroke-white stroke-2 text-xl md:text-5xl font-serif">
               Next{" "}
             </span>
           </button>

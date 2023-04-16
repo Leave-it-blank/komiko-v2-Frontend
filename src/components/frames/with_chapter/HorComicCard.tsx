@@ -33,7 +33,7 @@ type CardTYPE = {
 function HorComicCard({ comic }: CardTYPE) {
   return (
     <div className="m-2 grow flex justify-center ">
-      <div className="px-2 py-1 h-content bg-neutral-900 w-content rounded-xl w-full">
+      <div className="px-2 py-1 h-content bg-sky-400 dark:bg-neutral-900 w-content rounded-xl w-full">
         <div className="flex  rounded-md w-full">
           <div className="flex flex-row rounded-md w-full">
             <Link
@@ -70,7 +70,7 @@ function HorComicCard({ comic }: CardTYPE) {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                {/* <div className="absolute top-1 left-1 right-0 text-md md:text-sm font-bold font-catamaran w-fit pr-2 max-w-2/3 ml-1 md:ml-0 text-gray-100 bg-purple-300 dark:bg-purple-500 opacity-95 mt-1 capitalize text-left select-none cursor-pointer flex justify-center items-center flex-0 rounded-md">
+                {/* <div className="absolute top-1 left-1 right-0 text-md md:text-sm font-bold font-catamaran w-fit pr-2 max-w-2/3 ml-1 md:ml-0 text-gray-100 bg-sky-300 dark:bg-sky-500 opacity-95 mt-1 capitalize text-left select-none cursor-pointer flex justify-center items-center flex-0 rounded-md">
                   <div className="mt-1 px-2 py-1">
                     {"  " + comic.comic_choice}
                   </div>
@@ -88,7 +88,7 @@ function HorComicCard({ comic }: CardTYPE) {
                       ? comic.comic_titleSlug
                       : "comic")
                   }
-                  className=" min-h-5 w-full  text-md sm:text-sm line-clamp-3   text-left select-none cursor-pointer text-zinc-900 flex-none  dark:text-white flex-0    hover:text-purple-400 dark:hover:text-purple-500 font-bold"
+                  className=" min-h-5 w-full  text-md sm:text-sm line-clamp-3   text-left select-none cursor-pointer  flex-none   text-white flex-0    hover:text-black  dark:hover:text-sky-500 font-bold"
                 >
                   {comic.comic_title}
                 </Link>
@@ -116,7 +116,7 @@ function HorComicCard({ comic }: CardTYPE) {
                   }
                   className="absolute bottom-6 left-0  mx-4 md:mx-1 px-3 "
                 >
-                  <div className=" shrink-1 py-1 opacity-80 text-sm md:text-sm font-semibold mt-2 font-roboto capitalize  text-purple-400 text-center select-none cursor-pointer line-clamp-2     border-purple-700  border-2 bg-black rounded-md w-fit px-3">
+                  <div className=" shrink-1 py-1 opacity-80 text-sm md:text-sm font-semibold mt-2 font-roboto capitalize text-sky-600  dark:text-sky-400 text-center select-none cursor-pointer line-clamp-2     border-sky-700  border-2 bg-white dark:bg-black rounded-md w-fit px-3">
                     <p>
                       {"vol " +
                         comic.vol_number +

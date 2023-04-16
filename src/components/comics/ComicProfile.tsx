@@ -134,12 +134,12 @@ function ComicProfile({ comic }: ComicsType) {
 
   return (
     <>
-      <h1 className="mx-8 my-3 pb-2 text-2xl capitalize font-catamaran font-bold text-left line-clamp-3 ml-2 dark:text-white select-text cursor-pointer">
+      <h1 className="mx-8 my-3 pb-2 text-2xl capitalize font-catamaran font-bold text-left line-clamp-3 ml-2 text-sky-900 dark:text-white select-text cursor-pointer">
         {comic.title}
       </h1>
       <div
         style={{ minHeight: "450px" }}
-        className="flex flex-col xl:flex-row justify-center sm:justify-evenly gap-10 my-2 mx-auto sm:mb-5 bg-neutral-200 dark:bg-neutral-900 py-5 xl:px-10 px-2 rounded-lg min-w-fit"
+        className="flex flex-col xl:flex-row justify-center sm:justify-evenly gap-10 my-2 mx-auto sm:mb-5 bg-sky-200 dark:bg-neutral-900 py-5 xl:px-10 px-2 rounded-lg min-w-fit"
       >
         <div className="image2 mx-auto   xl:mx-auto flex items-center">
           <div className="relative w-48">
@@ -174,7 +174,7 @@ function ComicProfile({ comic }: ComicsType) {
           </div>
           <div className="absolute bottom-0 flex justify-around w-full text-white bg-white dark:bg-black rounded-lg bg-opacity-50 dark:bg-opacity-20 p-3">
             <button
-              className="py-2 px-4 bg-purple-500 rounded-md m-3 w-32 select-none"
+              className="py-2 px-4 bg-sky-500 rounded-md m-3 w-32 select-none"
               onClick={() => {
                 bookmark();
               }}
@@ -200,9 +200,9 @@ function ComicProfile({ comic }: ComicsType) {
         </div>
       </div>
 
-      <div className="sm:px-10 px-3 my-2 mx-auto sm:mb-5 bg-neutral-200 dark:bg-neutral-900 py-5 rounded-lg min-w-fit ">
+      <div className="sm:px-10 px-3 my-2 mx-auto sm:mb-5 bg-sky-200 dark:bg-neutral-900 py-5 rounded-lg min-w-fit ">
         {/* <!-- here we will put description inside box --> */}
-        <h2 className="text-xl font-roboto p-1   w-full text-justify max-w-md   font-bold text-gray-900 dark:text-gray-100 select-none   ">
+        <h2 className="text-xl font-roboto p-1   w-full text-justify max-w-md   font-bold text-sky-900 dark:text-gray-100 select-none   ">
           {"Description"}
         </h2>
 
@@ -224,8 +224,8 @@ function ComicProfile({ comic }: ComicsType) {
           /> */}
         </div>
       </div>
-      <div className="sm:px-10 px-3 my-2 mx-auto  mb-4 bg-neutral-200 dark:bg-neutral-900 py-5 rounded-lg min-w-fit">
-        <h3 className="text-xl font-roboto p-1 w-full text-justify max-w-md font-bold dark:text-white">
+      <div className="sm:px-10 px-3 my-2 mx-auto  mb-4 bg-sky-200 dark:bg-neutral-900 py-5 rounded-lg min-w-fit">
+        <h3 className="text-xl font-roboto p-1 w-full text-justify max-w-md font-bold text-sky-900 dark:text-white">
           {"Content"}
         </h3>
 
@@ -234,7 +234,7 @@ function ComicProfile({ comic }: ComicsType) {
             <div key={key}>
               <div className="flex flex-col my-2"></div>
 
-              <div className="  text-xl font-roboto my-2   font-bold   text-justify   text-gray-900 dark:text-gray-100 border-b border-purple-700 w-full  p-2 mb-5">
+              <div className="  text-xl font-roboto my-2   font-bold   text-justify  text-sky-900 dark:text-gray-100 border-b border-sky-700 w-full  p-2 mb-5">
                 {volume.chapters_exist && (
                   <div className="flex flex-row justify-between items-center">
                     <div>{"Volume " + volume.number} </div>{" "}
@@ -266,14 +266,14 @@ function ComicProfile({ comic }: ComicsType) {
                         readChapter(chapter.id);
                       }}
                     >
-                      <div className="   col-span-1 flex grow flex-row justify-start items-center p-3 rounded-md bg-gray-100 dark:bg-neutral-800 gap-2 hover:bg-purple-500 hover:text-white dark:hover:bg-purple-600 cursor-pointer">
+                      <div className="   col-span-1 flex grow flex-row justify-start items-center p-3 rounded-md bg-gray-100 dark:bg-neutral-800 gap-2 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-600 cursor-pointer">
                         <div className=" select-none first-letter:rounded-xl shrink-0">
                           <p
                             id={chapter.id + "_chapter_id_read"}
                             className="hidden"
                           >
                             <AiOutlineEye
-                              className="  h-8 w-8  cursor-pointer focus:outline-none focus:ring-2 text-purple-300 rounded-md"
+                              className="  h-8 w-8  cursor-pointer focus:outline-none focus:ring-2 text-sky-300 rounded-md"
                               aria-hidden="true"
                             />{" "}
                           </p>

@@ -12,15 +12,15 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
         <div className="xl:w-8/12 w-full  rounded-lg mx-auto">
           <ComicProfile comic={comic} />
 
-          <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto  bg-neutral-200 dark:bg-neutral-900 py-5   rounded-lg min-w-fit px-5 sm:px-10">
+          <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto  bg-sky-200 dark:bg-neutral-900 py-5   rounded-lg min-w-fit px-5 sm:px-10">
             {/* <!-- here we will put description inside box --> */}
-            <h3 className="text-xl font-roboto p-1   w-full text-left max-w-md   font-bold text-gray-900 dark:text-gray-100">
+            <h3 className="text-xl font-roboto p-1   w-full text-left max-w-md   font-bold  text-sky-900 dark:text-gray-100">
               {"Comment Section"}
             </h3>
             <div className="py-3"></div>
             <div
               id="disqus_thread"
-              className=" dark:text-purple-300 bg-transparent "
+              className=" dark:text-sky-300 bg-transparent "
             ></div>
           </div>
           <div
@@ -37,15 +37,15 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
           </div>
         </div>
         <div className="rounded-lg w-full  xl:w-4/12 xl:ml-10 mx-auto">
-          <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto sm:mb-5 bg-neutral-200 dark:bg-neutral-900 py-5 md:px-24 px-2 xl:px-5 rounded-lg min-w-fit">
+          <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto sm:mb-5 bg-sky-200 dark:bg-neutral-900 py-5 md:px-24 px-2 xl:px-5 rounded-lg min-w-fit">
             <h2 className="flex flex-wrap  ">
               {comic["tags"].map((tag: any, key) => (
                 <div
                   key={key}
-                  className="flex flex-row cursor-pointer select-none align-middle justify-items-center justify-center gap-2 px-4 m-1 py-2 bg-gradient-to-r from-purple-400 to-purple-600 rounded-xl text-white font-bold font-catamaran text-sm capitalize"
+                  className="flex flex-row cursor-pointer select-none align-middle justify-items-center justify-center gap-2 px-4 m-1 py-2 bg-gradient-to-r from-sky-400 to-sky-600 rounded-xl text-white font-bold font-catamaran text-sm capitalize"
                 >
                   <AiOutlineTag
-                    className="    h-6 w-4  focus:outline-none focus:ring-2 text-purple-300 rounded-md"
+                    className="    h-6 w-4  focus:outline-none focus:ring-2 text-sky-300 rounded-md"
                     aria-hidden="true"
                   />{" "}
                   <span className="mt-0.5 ">{tag.name}</span>
@@ -55,7 +55,7 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
 
             <div
               id="sol_button"
-              className="  text-xl font-roboto   font-bold   text-justify     text-gray-900 dark:text-gray-100 border-b border-purple-700 w-full   p-1"
+              className="  text-xl font-roboto   font-bold   text-justify     text-sky-900 dark:text-gray-100 border-b border-sky-700 w-full   p-1"
             >
               <div className="flex flex-row justify-between items-center">
                 <div>Source</div>{" "}
@@ -71,39 +71,45 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
                 <div className=" flex flex-col justify-center p-3 mx-2 capitalize text-gray-800 dark:text-gray-400 select-none">
                   <div className=" flex flex-row justify-between">
                     <p className="px-2">Author: </p>
-                    <p className="text-neutral-300">{comic.author}</p>
+                    <p className="text-sky-500 dark:text-neutral-300">
+                      {comic.author}
+                    </p>
                   </div>
                   <div className="flex flex-row justify-between ">
                     <p className="px-2">Artist:</p>
-                    <p className="text-neutral-300">{comic.artist}</p>
+                    <p className="text-sky-500 dark:text-neutral-300">
+                      {comic.artist}
+                    </p>
                   </div>
                   <div className="flex flex-row justify-between ">
                     <p className="px-2">Last Updated:</p>
-                    <p className="text-neutral-300">
+                    <p className="text-sky-500 dark:text-neutral-300">
                       {dateFromNow(comic.updated_at)}
                     </p>
                   </div>
                   <div className="flex flex-row justify-between ">
                     <p className="px-2">Created:</p>
-                    <p className="text-neutral-300">
+                    <p className="text-sky-500 dark:text-neutral-300">
                       {dateFromMMDOYYYY(comic.created_at)}
                     </p>
                   </div>
                   <div className="flex flex-row justify-between ">
                     <p className="px-2">Mature:</p>
-                    <p className="text-neutral-300">
+                    <p className="text-sky-500 dark:text-neutral-300">
                       {comic.isMature ? "Yes" : "No"}
                     </p>
                   </div>
                   <div className="flex flex-row justify-between ">
                     <p className="px-2">Locked:</p>
-                    <p className="text-neutral-300">
+                    <p className="text-sky-500 dark:text-neutral-300">
                       {comic.isLocked ? "Yes" : "No"}
                     </p>
                   </div>
                   <div className="flex flex-row justify-between ">
                     <p className="px-2">publisher:</p>
-                    <p className="text-neutral-300">{comic.publisher}</p>
+                    <p className="text-sky-500 dark:text-neutral-300">
+                      {comic.publisher}
+                    </p>
                   </div>
                 </div>
               </div>

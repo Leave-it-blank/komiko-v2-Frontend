@@ -83,18 +83,18 @@ function DeskTopNavBar() {
         className="fixed h-screen w-20 px-2 py-20 md:flex flex-col justify-center items-center hidden  "
         id="desk_nav_bar"
       >
-        <div className="flex flex-col justify-center items-center h-full  bg-neutral-900 w-full  rounded-xl ">
+        <div className="flex flex-col justify-center items-center h-full  bg-sky-400  dark:bg-neutral-900 border-b border-r border-t border-sky-500 dark:border-black border-0.3 w-full  rounded-xl ">
           <div className="flex flex-col justify-center items-center h-full    w-full gap-3 my-3 mt-8">
             {readerNav.map((item) =>
               item.current ? (
                 <Link href={item.href} key={item.key}>
-                  <div className="  bg-purple-700 hover:bg-purple-500 rounded-md   w-full flex justify-center items-center p-3">
+                  <div className="  bg-sky-700 hover:bg-sky-500 rounded-md   w-full flex justify-center items-center p-3">
                     {item.icon}
                   </div>
                 </Link>
               ) : (
                 <Link href={item.href} key={item.key}>
-                  <div className="hover:bg-purple-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
+                  <div className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
                     {item.icon}
                   </div>
                 </Link>
@@ -103,7 +103,7 @@ function DeskTopNavBar() {
           </div>
           <div className="flex flex-col justify-center items-center py-2 w-full my-3 ">
             <a target="_blank" href={process.env.NEXT_PUBLIC_BACKEND_LOGIN_URL}>
-              <div className="hover:bg-purple-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
+              <div className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
                 <ArrowLeftOnRectangleIcon className="h-8 w-8 text-white" />
               </div>
             </a>
@@ -111,7 +111,7 @@ function DeskTopNavBar() {
         </div>
       </div>{" "}
       <div
-        className=" fixed left-6 -translate-x-1 translate-y-1  bottom-5  bg-red-500 p-2 rounded-xl text-white  hover:text-purple-100 hover:bg-purple-500 cursor-pointer"
+        className=" fixed left-6 -translate-x-1 translate-y-1  bottom-5  bg-red-500 p-2 rounded-xl text-white  hover:text-sky-100 hover:bg-sky-500 cursor-pointer"
         onClick={navHandler}
       >
         <ArrowLeftIcon className="  bottom-10 h-6 w-6  " id="close_nav" />

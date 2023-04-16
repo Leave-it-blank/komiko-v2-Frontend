@@ -1,18 +1,18 @@
 function Support() {
   return (
-    <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto sm:mb-5 bg-neutral-200 dark:bg-neutral-900 py-5 md:px-24 px-2 xl:px-5 rounded-lg min-w-fit">
+    <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto sm:mb-5 bg-sky-200 dark:bg-neutral-900 py-5 md:px-24 px-2 xl:px-5 rounded-lg min-w-fit">
       {/* <!-- here we will put description inside box --> */}
-      <h4 className="text-xl font-roboto p-1   w-full text-justify   xl:mx-auto font-bold text-gray-900 dark:text-gray-100 capitalize">
+      <h4 className="text-xl font-roboto p-1   w-full text-justify   xl:mx-auto font-bold  text-sky-900 dark:text-gray-100 capitalize">
         {"Support: "}
       </h4>
       <div className="py-1"></div>
       <div className="grid overflow-hidden grid-cols-3 grid-rows-1 gap-4 text-white   ">
-        <div className=" row-span-1 bg-purple-500 dark:bg-purple-700   rounded-md">
+        <div className=" row-span-1 bg-sky-500 dark:bg-sky-700   rounded-md">
           <a
             rel="noreferrer"
             href={process.env.NEXT_PUBLIC_SUPPORT_DISCORD}
             target="_blank"
-            className="transition inline-flex items-center justify-center rounded w-full border border-transparent bg-neutral-850 p-6 text-white shadow-sm hover:bg-purple-700  dark:hover:bg-purple-500 focus:outline-none focus:ring-0"
+            className="transition inline-flex items-center justify-center rounded w-full border border-transparent bg-neutral-850 p-6 text-white shadow-sm hover:bg-sky-700  dark:hover:bg-sky-500 focus:outline-none focus:ring-0"
           >
             <svg
               className="svg-inline--fa fa-discord h-8 w-8"
@@ -32,12 +32,12 @@ function Support() {
             </svg>
           </a>
         </div>
-        <div className=" row-span-1 bg-purple-500 dark:bg-purple-700  rounded-md">
+        <div className=" row-span-1 bg-sky-500 dark:bg-sky-700  rounded-md">
           <a
             rel="noreferrer"
             href={process.env.NEXT_PUBLIC_SUPPORT_PAYPAL}
             target="_blank"
-            className="transition inline-flex items-center justify-center rounded w-full border border-transparent bg-neutral-850 p-6 text-white shadow-sm hover:bg-purple-700 dark:hover:bg-purple-500 focus:outline-none focus:ring-0"
+            className="transition inline-flex items-center justify-center rounded w-full border border-transparent bg-neutral-850 p-6 text-white shadow-sm hover:bg-sky-700 dark:hover:bg-sky-500 focus:outline-none focus:ring-0"
           >
             <svg
               className="svg-inline--fa fa-paypal h-8 w-8"
@@ -57,12 +57,12 @@ function Support() {
             </svg>
           </a>
         </div>
-        <div className=" row-span-1 bg-purple-500 dark:bg-purple-700 rounded-md">
+        <div className=" row-span-1 bg-sky-500 dark:bg-sky-700 rounded-md">
           <a
             rel="noreferrer"
             href={process.env.NEXT_PUBLIC_SUPPORT_PATREON}
             target="_blank"
-            className="transition inline-flex items-center justify-center content-center rounded w-full border border-transparent bg-neutral-850 p-6 text-white shadow-sm hover:bg-purple-700 dark:hover:bg-purple-500 focus:outline-none focus:ring-0"
+            className="transition inline-flex items-center justify-center content-center rounded w-full border border-transparent bg-neutral-850 p-6 text-white shadow-sm hover:bg-sky-700 dark:hover:bg-sky-500 focus:outline-none focus:ring-0"
           >
             <svg
               className="svg-inline--fa fa-square-patreon h-8 w-8 text-white  "
