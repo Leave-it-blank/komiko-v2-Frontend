@@ -11,7 +11,7 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
   useEffect(() => {
     loadDisque(
       `komiko ${chapter["comic_titleSlug"]}`,
-      `https://komiko.leaveitblank.co/comics/${chapter["comic_titleSlug"]}/volume/${chapter["volume_id"]}/chapter/${chapter["ch_id"]}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${chapter["comic_titleSlug"]}/volume/${chapter["vol_ID"]}/chapter/${chapter["ch_id"]}`,
       "testsite-q2cy98osnk"
     );
   }, [chapter]);

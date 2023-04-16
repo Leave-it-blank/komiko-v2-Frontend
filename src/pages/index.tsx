@@ -38,7 +38,7 @@ export default function Home({
                   onClick={() => {
                     loadDisque(
                       "komikoHome",
-                      "https://komiko.leaveitblank.co/",
+                      `${process.env.NEXT_PUBLIC_BACKEND_URL}/`,
                       "testsite-q2cy98osnk"
                     );
                   }}

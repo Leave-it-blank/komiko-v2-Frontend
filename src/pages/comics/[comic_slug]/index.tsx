@@ -11,7 +11,7 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
   useEffect(() => {
     loadDisque(
       `komiko ${comic["title"]}`,
-      `https://komiko.leaveitblank.co/comics/${comic["title"]}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic["title"]}`,
       "testsite-q2cy98osnk"
     );
   }, []);
