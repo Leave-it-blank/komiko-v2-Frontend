@@ -198,3 +198,17 @@ export type CHAPTER_APITYPE = {
     crawler_detected: boolean;
   };
 };
+
+export type ALLCOMICS_APITYPE = {
+  comics: Array<{
+    id: number;
+    title: string;
+    titleSlug: string;
+    created_at: string;
+    choice: string;
+    chapterCount: number;
+    type: string;
+    isMature: boolean;
+    status: string;
+  }>;
+};

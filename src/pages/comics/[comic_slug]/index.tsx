@@ -1,5 +1,5 @@
 import { COMIC_DETAILS_APITYPE } from "@/utils/types";
-import { getComicDetails } from "@/utils/api";
+import { getComicDetails, getAllComics } from "@/utils/api";
 import { dateFromMMDOYYYY, dateFromNow } from "@/utils/dates";
 import ComicProfile from "@/components/comics/ComicProfile";
 import { AiOutlineTag } from "react-icons/ai";
@@ -158,9 +158,19 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
 export async function getStaticPaths() {
   //add some preloading for comics here via backend api
   // const { comics } = await getComics(); {{TODO}}
+  const { comics } = await getAllComics();
+  if (!comics) {
+    const paths = [{ params: { comic_slug: "" } }];
+    return { paths, fallback: "blocking" };
+  }
 
-  const paths = [{ params: { comic_slug: "" } }];
-  console.log(paths);
+  const paths = comics.map((comic: any) => {
+    return { params: { comic_slug: comic.titleSlug } };
+  });
+  // console.log(path);
+
+  // const paths = [{ params: { comic_slug: "" } }];
+  // console.log(paths);
 
   return { paths, fallback: "blocking" };
 }
