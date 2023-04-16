@@ -7,14 +7,19 @@ import {
 } from "./types";
 export async function getHomePage() {
   let url: string = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/homepage`;
-  const res = await fetch(url);
-  if (!res.ok) {
-    const message = `An error occured: ${res.status} while fetching data from api`;
-    console.error(message);
-    throw new Error(message);
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      const message = `An error occured: ${res.status} while fetching data from api`;
+      console.error(message);
+      throw new Error(message);
+    }
+    const response: HOMEPAGE_APITYPE = await res.json();
+    return response;
+  } catch (err) {
+    console.log(err);
+    throw new Error(`An error occured: ${err} while fetching data from api`);
   }
-  const response: HOMEPAGE_APITYPE = await res.json();
-  return response;
 }
 
 export async function getLatestPage(query: any) {
@@ -24,15 +29,20 @@ export async function getLatestPage(query: any) {
   if (page !== null && page !== undefined) {
     url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/latest/?page=${page}`;
   }
-  const res = await fetch(url);
-  if (!res.ok) {
-    const message = `An error occured: ${res.status} while fetching data from api`;
-    console.error(message);
-    throw new Error(message);
-  }
-  const response: LATEST_APITYPE = await res.json();
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      const message = `An error occured: ${res.status} while fetching data from api`;
+      console.error(message);
+      throw new Error(message);
+    }
+    const response: LATEST_APITYPE = await res.json();
 
-  return response;
+    return response;
+  } catch (e) {
+    console.log(e);
+    throw new Error(`An error occured: ${e} while fetching data from api`);
+  }
 }
 
 export async function getComicsPage(query: any) {
@@ -42,15 +52,20 @@ export async function getComicsPage(query: any) {
   if (page !== null && page !== undefined) {
     url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/comics/?page=${page}`;
   }
-  const res = await fetch(url);
-  if (!res.ok) {
-    const message = `An error occured: ${res.status} while fetching data from api`;
-    console.error(message);
-    throw new Error(message);
-  }
-  const response: COMICS_APITYPE = await res.json();
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      const message = `An error occured: ${res.status} while fetching data from api`;
+      console.error(message);
+      throw new Error(message);
+    }
+    const response: COMICS_APITYPE = await res.json();
 
-  return response;
+    return response;
+  } catch (e) {
+    console.log(e);
+    throw new Error(`An error occured: ${e} while fetching data from api`);
+  }
 }
 
 export async function getComicDetails(params: { comic_slug: string }) {
@@ -58,15 +73,20 @@ export async function getComicDetails(params: { comic_slug: string }) {
 
   let url: string = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/comics/${comic_slug}`;
 
-  const res = await fetch(url);
-  if (!res.ok) {
-    const message = `An error occured: ${res.status} while fetching data from api`;
-    console.error(message);
-    throw new Error(message);
-  }
-  const response: COMIC_DETAILS_APITYPE = await res.json();
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      const message = `An error occured: ${res.status} while fetching data from api`;
+      console.error(message);
+      throw new Error(message);
+    }
+    const response: COMIC_DETAILS_APITYPE = await res.json();
 
-  return response;
+    return response;
+  } catch (e) {
+    console.log(e);
+    throw new Error(`An error occured: ${e} while fetching data from api`);
+  }
 }
 
 export async function getChapter(params: {
@@ -77,14 +97,18 @@ export async function getChapter(params: {
   const { comic_slug, volume_id, chapter_id } = params;
 
   let url: string = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/comics/${comic_slug}/volume/${volume_id}/chapter/${chapter_id}`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      const message = `An error occured: ${res.status} while fetching data from api`;
+      console.error(message);
+      throw new Error(message);
+    }
+    const response: CHAPTER_APITYPE = await res.json();
 
-  const res = await fetch(url);
-  if (!res.ok) {
-    const message = `An error occured: ${res.status} while fetching data from api`;
-    console.error(message);
-    throw new Error(message);
+    return response;
+  } catch (e) {
+    console.log(e);
+    throw new Error(`An error occured: ${e} while fetching data from api`);
   }
-  const response: CHAPTER_APITYPE = await res.json();
-
-  return response;
 }
