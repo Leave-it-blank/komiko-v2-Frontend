@@ -12,7 +12,7 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
     loadDisque(
       `komiko ${comic["title"]}`,
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic["title"]}`,
-      "testsite-q2cy98osnk"
+      `${process.env.NEXT_PUBLIC_COMMENT_DISQ}`
     );
   }, [comic]);
   return (

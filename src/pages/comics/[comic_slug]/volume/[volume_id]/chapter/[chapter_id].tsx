@@ -12,7 +12,7 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
     loadDisque(
       `komiko ${chapter["comic_titleSlug"]}`,
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${chapter["comic_titleSlug"]}/volume/${chapter["vol_ID"]}/chapter/${chapter["ch_id"]}`,
-      "testsite-q2cy98osnk"
+      `${process.env.NEXT_PUBLIC_COMMENT_DISQ}`
     );
   }, [chapter]);
   useEffect(() => {

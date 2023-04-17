@@ -39,7 +39,7 @@ export default function Home({
                     loadDisque(
                       "komikoHome",
                       `${process.env.NEXT_PUBLIC_BACKEND_URL}/`,
-                      "testsite-q2cy98osnk"
+                      `${process.env.NEXT_PUBLIC_COMMENT_DISQ}`
                     );
                   }}
                   className="py-2 bg-sky-500 dark:bg-neutral-900 text-white rounded-lg center w-full hover:bg-sky-700"
