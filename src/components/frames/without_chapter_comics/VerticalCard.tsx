@@ -53,7 +53,7 @@ function VerticalCard({ comic }: CardTYPE) {
               <div className="justify-end flex-none">
                 <div className="flex flex-col font-roboto py-4 px-4 md:px-1 text-zinc-600 sm:w-48">
                   <div className="min-h-5 w-full text-xl md:text-md   text-left select-none cursor-pointer text-sky-500 flex-none flex-0 dark:text-white   hover:text-black dark:hover:text-sky-500 font-bold">
-                    {comic.titleSlug}
+                    {comic.title}
                   </div>
 
                   <div className=" min-h-3 w-full text-sm font-medium text-left select-none cursor-pointer flex-none line-clamp-2 md:line-clamp-1 flex-0">
