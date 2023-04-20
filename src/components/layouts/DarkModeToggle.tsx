@@ -5,7 +5,7 @@ import useDarkMode from "../../hooks/useDarkMode";
 function DarkModeToggle() {
   const [colorTheme, setTheme] = useDarkMode();
   const [darkSide, setDarkSide] = useState(
-    colorTheme === "light" ? true : false
+    colorTheme === "dark" ? true : false
   );
 
   const toggleDarkMode = (
