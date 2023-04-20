@@ -1,25 +1,18 @@
 import { useState, useEffect } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import useDarkMode from "../../hooks/useDarkMode";
 
 function DarkModeToggle() {
-  const [theme, setTheme] = useState("dark");
+  const [colorTheme, setTheme] = useDarkMode();
+  const [darkSide, setDarkSide] = useState(
+    colorTheme === "light" ? true : false
+  );
 
-  const [darkMode, setDarkMode] = useState(theme === "dark" ? true : false);
-
-  useEffect(() => {
-    setTheme(localStorage.getItem("theme") || "dark");
-  }, [theme]);
-
-  const toggleDarkMode = () => {
-    if (theme == "dark") {
-      setTheme("light");
-      localStorage.setItem("theme", theme);
-      setDarkMode(false);
-    } else {
-      setTheme("dark");
-      localStorage.setItem("theme", theme);
-      setDarkMode(true);
-    }
+  const toggleDarkMode = (
+    checked: boolean | ((prevState: boolean) => boolean)
+  ) => {
+    setTheme(colorTheme);
+    setDarkSide(checked);
   };
 
   return (
@@ -28,7 +21,7 @@ function DarkModeToggle() {
         className="relative inline-flex h-8 w-11 items-center rounded-full"
         sunColor="blue"
         moonColor="blue"
-        checked={darkMode}
+        checked={darkSide}
         onChange={toggleDarkMode}
         size={30}
       />
