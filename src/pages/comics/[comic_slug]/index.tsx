@@ -10,11 +10,6 @@ import { DiscussionEmbed, CommentCount } from "disqus-react";
 
 export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
   const disq = `${process.env.NEXT_PUBLIC_COMMENT_DISQ}` ?? "mysite";
-  const [disqusConfig, setDisqusConfig] = useState({
-    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic["title"]}`,
-    identifier: `komiko ${comic["title"]}`,
-    title: `komiko ${comic["title"]}`,
-  });
 
   return (
     <div className="max-w-screen-2xl py-10 w-full min-h-screen mx-auto">

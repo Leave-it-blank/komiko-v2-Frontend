@@ -7,11 +7,13 @@ import {
   ArrowUpOnSquareStackIcon,
   ArrowLeftOnRectangleIcon,
 } from "@heroicons/react/24/solid";
+import LoadingSpinner from "../layouts/LoadingSpinner";
 
 function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
-  let [index, setIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [index, setIndex] = useState(0);
   const handle = useFullScreenHandle();
-  useEffect(() => {
+  const loadNav = () => {
     let img = document.getElementById(`my_height_container`);
     //or however you get a handle to the IMG
     if (img) {
@@ -28,6 +30,9 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
       }
       // console.log(width, height);
     }
+  };
+  useEffect(() => {
+    loadNav();
   }, [index]);
   useEffect(() => {
     setIndex(0);
@@ -35,10 +40,12 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
 
   const handleNext = () => {
     if (index >= chapter.pages.length - 1) return;
+    setLoading(true);
     setIndex((index) => index + 1);
   };
   const handlePrev = () => {
     if (index <= 0) return;
+    setLoading(true);
     setIndex((index) => index - 1);
   };
   const exitHandlder = () => {
@@ -72,71 +79,101 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
 
       <FullScreen handle={handle}>
         {" "}
-        <small className="text-sky-900 dark:text-white flex flex-row gap-3 px-2 items-center ">
-          <div className=" text-xl ">{chapter.comic_title}</div>
-          <div> ●</div>
+        <div className="flex flex-row justify-between items-center px-2 pt-2">
+          <small className="text-sky-900 dark:text-white flex flex-row gap-3 px-2 items-center ">
+            <div className=" text-xl ">{chapter.comic_title}</div>
+            <div> ●</div>
 
-          <div>Vol {chapter.vol_no}</div>
-          <div> ●</div>
+            <div>Vol {chapter.vol_no}</div>
+            <div> ●</div>
 
-          <div>Chapter {chapter.ch_no}</div>
-        </small>
+            <div>Chapter {chapter.ch_no}</div>
+          </small>
+          <small className="text-sky-900 dark:text-white flex flex-row gap-3 px-2 items-center ">
+            Page {index + 1}
+          </small>
+        </div>
         <div
           className=" relative  mt-5"
           id="my_height_container"
           style={{ height: "80vh" }}
         >
-          <button
-            id="prev"
-            onClick={handlePrev}
-            className=" w-1/3 bg-black bg-opacity-0 hover:bg-opacity-25 opacity-0 hover:opacity-90  absolute left-0  flex justify-center items-center min-h-80 "
-          >
-            <span className="text-sky-100   stroke-white stroke-2 text-xl md:text-5xl font-serif">
-              Prev{" "}
-            </span>
-          </button>
-          <button
-            id="next"
-            onClick={handleNext}
-            className=" w-1/3 bg-black bg-opacity-0 hover:bg-opacity-25   absolute right-0 flex justify-center items-center opacity-0 hover:opacity-90 "
-          >
-            <span className="text-sky-100   stroke-white stroke-2 text-xl md:text-5xl font-serif">
-              Next{" "}
-            </span>
-          </button>
+          {index > 0 && (
+            <button
+              id="prev"
+              style={{ height: "80vh" }}
+              onClick={handlePrev}
+              className=" w-1/3 bg-black bg-opacity-0 hover:bg-opacity-25 opacity-0 hover:opacity-90  absolute left-0  flex justify-center items-center min-h-80 "
+            >
+              <span className="text-sky-100   stroke-white stroke-2 text-xl md:text-5xl font-serif">
+                Prev{" "}
+              </span>
+            </button>
+          )}
+
+          {index + 1 < chapter.pages.length && (
+            <button
+              id="next"
+              onClick={handleNext}
+              style={{ height: "80vh" }}
+              className=" w-1/3 bg-black bg-opacity-0 hover:bg-opacity-25   absolute right-0 flex justify-center items-center opacity-0 hover:opacity-90 "
+            >
+              <span className="text-sky-100   stroke-white stroke-2 text-xl md:text-5xl font-serif">
+                Next{" "}
+              </span>
+            </button>
+          )}
+
+          {loading && (
+            <div className="absolute   -top-24 right-1/2 translate-x-12">
+              {" "}
+              <LoadingSpinner />
+            </div>
+          )}
+
           <Image
             className=" w-full h-full  overflow-y-scroll object-contain"
-            onLoad={() => {}}
             src={chapter.pages[index].thumb}
-            alt={chapter.pages[index].fileName + chapter.pages[index].id}
-            quality={80}
-            width={720}
-            height={5048}
-            priority={true}
-            referrerPolicy="no-referrer"
-          ></Image>
-          <Image
-            className=" w-full h-full  overflow-y-scroll object-contain hidden"
-            onLoad={() => {}}
-            src={
-              chapter.pages[
-                index + 1 > chapter.pages.length ? index + 1 : index
-              ].thumb
-            }
             alt={
-              chapter.pages[
-                index + 1 > chapter.pages.length ? index + 1 : index
-              ].fileName +
-              chapter.pages[
-                index + 1 > chapter.pages.length ? index + 1 : index
-              ].id
+              chapter.pages[index].fileName +
+              chapter.pages[index].id +
+              " chapter " +
+              chapter.ch_no +
+              "vol " +
+              chapter.vol_no +
+              "comic " +
+              chapter.comic_titleSlug
             }
             quality={80}
             width={720}
             height={5048}
             priority={true}
             referrerPolicy="no-referrer"
+            onLoadingComplete={() => {
+              setLoading(false);
+            }}
           ></Image>
+          {index + 1 < chapter.pages.length && (
+            <Image
+              className=" w-full h-full  overflow-y-scroll object-contain hidden"
+              src={chapter.pages[index].thumb}
+              alt={
+                chapter.pages[index].fileName +
+                chapter.pages[index].id +
+                " chapter " +
+                chapter.ch_no +
+                "vol " +
+                chapter.vol_no +
+                "comic " +
+                chapter.comic_titleSlug
+              }
+              quality={80}
+              width={720}
+              height={5048}
+              priority={true}
+              referrerPolicy="no-referrer"
+            ></Image>
+          )}
         </div>
         <ChapterNavigation
           nextCh={chapter.nextCh}

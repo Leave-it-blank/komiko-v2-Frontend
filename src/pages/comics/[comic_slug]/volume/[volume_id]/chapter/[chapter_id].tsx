@@ -9,11 +9,6 @@ import { DiscussionEmbed, CommentCount } from "disqus-react";
 function ChapterPage({ chapter }: CHAPTER_APITYPE) {
   const [reader, setReader] = useState("loading");
   const disq = `${process.env.NEXT_PUBLIC_COMMENT_DISQ}` ?? "mysite";
-  const [disqusConfig, setDisqusConfig] = useState({
-    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${chapter["comic_titleSlug"]}/volume/${chapter["vol_ID"]}/chapter/${chapter["ch_id"]}`,
-    identifier: `komiko ${chapter["comic_titleSlug"]}`,
-    title: `komiko ${chapter["comic_title"]}`,
-  });
 
   useEffect(() => {
     readChapter(chapter.ch_id);

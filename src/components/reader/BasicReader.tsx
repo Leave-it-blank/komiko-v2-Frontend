@@ -44,7 +44,16 @@ function BasicReader({ chapter }: CHAPTER_APITYPE) {
             <Image
               className="select-none w-full flex justify-center items-center  "
               src={page.thumb}
-              alt={page.fileName + page.id}
+              alt={
+                page.fileName +
+                page.id +
+                " chapter " +
+                chapter.ch_no +
+                "vol " +
+                chapter.vol_no +
+                "comic " +
+                chapter.comic_titleSlug
+              }
               width={720}
               height={5048}
               priority={true}

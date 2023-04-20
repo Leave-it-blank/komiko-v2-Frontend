@@ -30,22 +30,27 @@ export default function Home({
           <TopComics recommended={recommended} />
         </div>
 
-        <div className="flex flex-col my-2 mx-auto w-full">
+        <div className="flex flex-col my-2 mx-auto w-full ">
           <div className="md:pl-20 w-full">
             <div className="py-3 w-full ">
-              <div className="rounded-xl   px-3 bg-sky-300 dark:bg-neutral-900  py-2 text-sky-700 ">
-                <div className="text-xl flex justify-center w-full items-center mb-3">
-                  <CommentCount
-                    shortname={disq}
-                    config={{
-                      url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/`,
-                      identifier: "komikoHome",
-                      title: "HomePage Komiko",
-                    }}
-                  >
-                    {/* Placeholder Text */}
-                    Loading.. Comments..
-                  </CommentCount>
+              <div className="rounded-xl   px-5 bg-sky-400 dark:bg-neutral-900  py-4 text-sky-700  ">
+                <div className="flex flex-row justify-between items-center p-4">
+                  <h3 className="text-xl font-roboto p-1   w-1/2 text-left max-w-md   font-bold  text-sky-900 dark:text-gray-100">
+                    {"Comment Section"}
+                  </h3>
+                  <h4 className="px-4 dark:text-white text-sky-900 py-2">
+                    <CommentCount
+                      shortname={disq}
+                      config={{
+                        url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/`,
+                        identifier: "komikoHome",
+                        title: "HomePage Komiko",
+                      }}
+                    >
+                      {/* Placeholder Text */}
+                      Loading.. Comments..
+                    </CommentCount>
+                  </h4>
                 </div>
 
                 <DiscussionEmbed
