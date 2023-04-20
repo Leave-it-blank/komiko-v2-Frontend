@@ -5,32 +5,39 @@ import ComicProfile from "@/components/comics/ComicProfile";
 import { AiOutlineTag } from "react-icons/ai";
 import Support from "@/components/layouts/Support";
 import { loadDisque } from "@/utils/disque";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { DiscussionEmbed, CommentCount } from "disqus-react";
 
 export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
-  useEffect(() => {
-    loadDisque(
-      `komiko ${comic["title"]}`,
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic["title"]}`,
-      `${process.env.NEXT_PUBLIC_COMMENT_DISQ}`
-    );
-  }, [comic]);
+  const disq = `${process.env.NEXT_PUBLIC_COMMENT_DISQ}` ?? "mysite";
+  const [disqusConfig, setDisqusConfig] = useState({
+    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic["title"]}`,
+    identifier: `komiko ${comic["title"]}`,
+    title: `komiko ${comic["title"]}`,
+  });
+
   return (
     <div className="max-w-screen-2xl py-10 w-full min-h-screen mx-auto">
       <div className="flex flex-col xl:flex-row justify-evenly sm:mx-10 gap-2">
         <div className="xl:w-8/12 w-full  rounded-lg mx-auto">
           <ComicProfile comic={comic} />
 
-          <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto  bg-sky-200 dark:bg-neutral-900 py-5   rounded-lg min-w-fit px-5 sm:px-10">
+          <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto  bg-sky-300 dark:bg-neutral-900 py-5   rounded-lg min-w-fit px-5 sm:px-10">
             {/* <!-- here we will put description inside box --> */}
             <h3 className="text-xl font-roboto p-1   w-full text-left max-w-md   font-bold  text-sky-900 dark:text-gray-100">
               {"Comment Section"}
             </h3>
             <div className="py-3"></div>
-            <div
-              id="disqus_thread"
-              className=" text-sky-900 bg-sky-200 dark:bg-neutral-900 dark:text-sky-300  "
-            ></div>
+            <div className="rounded-xl    ">
+              <DiscussionEmbed
+                shortname={disq}
+                config={{
+                  url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic["title"]}`,
+                  identifier: `komiko ${comic["title"]}`,
+                  title: `komiko ${comic["title"]}`,
+                }}
+              />
+            </div>
           </div>
           <div
             id="props.ads_comic.below_content"
@@ -118,6 +125,21 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
                     <p className="px-2">publisher:</p>
                     <p className="text-sky-500 dark:text-neutral-300">
                       {comic.publisher}
+                    </p>
+                  </div>
+                  <div className="flex flex-row justify-between ">
+                    <p className="px-2">Total Comments:</p>
+                    <p className="text-sky-500 dark:text-neutral-300">
+                      <CommentCount
+                        shortname={disq}
+                        config={{
+                          url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic["title"]}`,
+                          identifier: `komiko ${comic["title"]}`,
+                          title: `komiko ${comic["title"]}`,
+                        }}
+                      >
+                        {/* Placeholder Text */}0
+                      </CommentCount>
                     </p>
                   </div>
                 </div>

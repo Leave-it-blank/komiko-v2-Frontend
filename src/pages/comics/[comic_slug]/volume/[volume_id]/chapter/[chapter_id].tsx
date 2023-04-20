@@ -5,16 +5,16 @@ import { getChapter } from "@/utils/api";
 import BasicReader from "@/components/reader/BasicReader";
 import LoadingSpinner from "@/components/layouts/LoadingSpinner";
 import AdvanceReader from "@/components/reader/AdvanceReader";
-
+import { DiscussionEmbed, CommentCount } from "disqus-react";
 function ChapterPage({ chapter }: CHAPTER_APITYPE) {
   const [reader, setReader] = useState("loading");
-  useEffect(() => {
-    loadDisque(
-      `komiko ${chapter["comic_titleSlug"]}`,
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${chapter["comic_titleSlug"]}/volume/${chapter["vol_ID"]}/chapter/${chapter["ch_id"]}`,
-      `${process.env.NEXT_PUBLIC_COMMENT_DISQ}`
-    );
-  }, [chapter]);
+  const disq = `${process.env.NEXT_PUBLIC_COMMENT_DISQ}` ?? "mysite";
+  const [disqusConfig, setDisqusConfig] = useState({
+    url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${chapter["comic_titleSlug"]}/volume/${chapter["vol_ID"]}/chapter/${chapter["ch_id"]}`,
+    identifier: `komiko ${chapter["comic_titleSlug"]}`,
+    title: `komiko ${chapter["comic_title"]}`,
+  });
+
   useEffect(() => {
     readChapter(chapter.ch_id);
   });
@@ -82,16 +82,38 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
 
         {reader === "basic" && <BasicReader chapter={chapter} />}
         {reader === "advanced" && <AdvanceReader chapter={chapter} />}
-        <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto  bg-sky-200 dark:bg-neutral-900 py-5   rounded-lg min-w-fit px-5 sm:px-10">
+        <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto  bg-sky-300 dark:bg-neutral-900 py-5   rounded-lg min-w-fit px-5 sm:px-10">
           {/* <!-- here we will put description inside box --> */}
-          <h3 className="text-xl font-roboto p-1   w-full text-left max-w-md   font-bold  text-sky-900 dark:text-gray-100">
-            {"Comment Section"}
-          </h3>
+          <div className="flex flex-row justify-between items-center">
+            <h3 className="text-xl font-roboto p-1   w-1/2 text-left max-w-md   font-bold  text-sky-900 dark:text-gray-100">
+              {"Comment Section"}
+            </h3>
+            <h4 className="px-4 dark:text-white text-sky-900 py-2">
+              <CommentCount
+                shortname={disq}
+                config={{
+                  url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${chapter["comic_titleSlug"]}/volume/${chapter["vol_ID"]}/chapter/${chapter["ch_id"]}`,
+                  identifier: `komiko ${chapter["comic_titleSlug"]}/${chapter["comic_titleSlug"]}/volume/${chapter["vol_ID"]}/chapter/${chapter["ch_id"]}`,
+                  title: `komiko ${chapter["comic_title"]}`,
+                }}
+              >
+                {/* Placeholder Text */}
+                Loading.. Comments..
+              </CommentCount>
+            </h4>
+          </div>
+
           <div className="py-3"></div>
-          <div
-            id="disqus_thread"
-            className=" text-sky-900 bg-sky-200 dark:bg-neutral-900 dark:text-sky-300 "
-          ></div>
+          <div className="rounded-xl    ">
+            <DiscussionEmbed
+              shortname={disq}
+              config={{
+                url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${chapter["comic_titleSlug"]}/volume/${chapter["vol_ID"]}/chapter/${chapter["ch_id"]}`,
+                identifier: `komiko ${chapter["comic_titleSlug"]}/${chapter["comic_titleSlug"]}/volume/${chapter["vol_ID"]}/chapter/${chapter["ch_id"]}`,
+                title: `komiko ${chapter["comic_title"]}`,
+              }}
+            />
+          </div>
         </div>
       </div>
     </>

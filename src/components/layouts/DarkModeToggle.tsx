@@ -1,20 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { useTheme } from "next-themes";
 
 function DarkModeToggle() {
-  const { systemTheme, theme, setTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
-  const [darkMode, setDarkMode] = useState(
-    currentTheme === "dark" ? true : false
-  );
+  const [theme, setTheme] = useState("dark");
+
+  const [darkMode, setDarkMode] = useState(theme === "dark" ? true : false);
+
+  useEffect(() => {
+    setTheme(localStorage.getItem("theme") || "dark");
+  }, [theme]);
 
   const toggleDarkMode = () => {
     if (theme == "dark") {
       setTheme("light");
+      localStorage.setItem("theme", theme);
       setDarkMode(false);
     } else {
       setTheme("dark");
+      localStorage.setItem("theme", theme);
       setDarkMode(true);
     }
   };
@@ -34,3 +37,6 @@ function DarkModeToggle() {
 }
 
 export default DarkModeToggle;
+function useEffects(arg0: () => void) {
+  throw new Error("Function not implemented.");
+}
