@@ -7,6 +7,7 @@ import Support from "@/components/layouts/Support";
 import { loadDisque } from "@/utils/disque";
 import { useEffect, useState } from "react";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
+import Link from "next/link";
 
 export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
   const disq = `${process.env.NEXT_PUBLIC_COMMENT_DISQ}` ?? "mysite";
@@ -51,16 +52,15 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
           <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto sm:mb-5 bg-sky-200 dark:bg-neutral-900 py-5 md:px-24 px-2 xl:px-5 rounded-lg min-w-fit">
             <h2 className="flex flex-wrap  ">
               {comic["tags"].map((tag: any, key) => (
-                <div
-                  key={key}
-                  className="flex flex-row cursor-pointer select-none align-middle justify-items-center justify-center gap-2 px-4 m-1 py-2 bg-gradient-to-r from-sky-400 to-sky-600 rounded-xl text-white font-bold font-catamaran text-sm capitalize"
-                >
-                  <AiOutlineTag
-                    className="    h-6 w-4  focus:outline-none focus:ring-2 text-sky-300 rounded-md"
-                    aria-hidden="true"
-                  />{" "}
-                  <span className="mt-0.5 ">{tag.name}</span>
-                </div>
+                <Link href={`/search?tags=${tag.name}`} key={key}>
+                  <div className="flex flex-row cursor-pointer select-none align-middle justify-items-center justify-center gap-2 px-4 m-1 py-2 bg-gradient-to-r from-sky-400 to-sky-600 rounded-xl text-white font-bold font-catamaran text-sm capitalize">
+                    <AiOutlineTag
+                      className="    h-6 w-4  focus:outline-none focus:ring-2 text-sky-300 rounded-md"
+                      aria-hidden="true"
+                    />{" "}
+                    <span className="mt-0.5 ">{tag.name}</span>
+                  </div>
+                </Link>
               ))}
             </h2>
 
@@ -82,15 +82,20 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
                 <div className=" flex flex-col justify-center p-3 mx-2 capitalize text-gray-800 dark:text-gray-400 select-none">
                   <div className=" flex flex-row justify-between">
                     <p className="px-2">Author: </p>
-                    <p className="text-sky-500 dark:text-neutral-300">
-                      {comic.author}
-                    </p>
+                    <Link href={`/search?author=${comic.author}`}>
+                      {" "}
+                      <p className="text-sky-500 dark:text-neutral-300">
+                        {comic.author}
+                      </p>
+                    </Link>
                   </div>
                   <div className="flex flex-row justify-between ">
                     <p className="px-2">Artist:</p>
-                    <p className="text-sky-500 dark:text-neutral-300">
-                      {comic.artist}
-                    </p>
+                    <Link href={`/search?artist=${comic.artist}`}>
+                      <p className="text-sky-500 dark:text-neutral-300">
+                        {comic.artist}
+                      </p>
+                    </Link>
                   </div>
                   <div className="flex flex-row justify-between ">
                     <p className="px-2">Last Updated:</p>
