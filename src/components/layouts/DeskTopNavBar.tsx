@@ -93,7 +93,7 @@ function DeskTopNavBar() {
                       const tooltip = document.getElementById(
                         item.key + ""
                       ) as HTMLElement;
-                      tooltip.style.display = "block";
+                      tooltip.style.display = "flex";
                     }}
                     onMouseLeave={() => {
                       const tooltip = document.getElementById(
@@ -108,7 +108,7 @@ function DeskTopNavBar() {
                     {item.icon}
                   </div>
                   <div
-                    className="absolute flex justify-start dark:text-white text-sky-900 top-0 -right-20  px-2 translate-y-4   w-20 "
+                    className="absolute hidden  justify-start dark:text-white text-sky-900 top-0 -right-20  px-2 translate-y-4   w-20 "
                     id={item.key + ""}
                   >
                     {item.name}
@@ -136,7 +136,7 @@ function DeskTopNavBar() {
                     {item.icon}
                   </div>
                   <div
-                    className="absolute flex justify-start dark:text-white text-sky-900 top-0 -right-20  px-2 translate-y-4   w-20 "
+                    className="absolute hidden justify-start dark:text-white text-sky-900 top-0 -right-20  px-2 translate-y-4   w-20 "
                     id={item.key + ""}
                   >
                     {item.name}
@@ -146,12 +146,36 @@ function DeskTopNavBar() {
             )}
           </div>
           <div className="flex flex-col justify-center items-center py-2 w-full my-3 ">
-            <a target="_blank" href={process.env.NEXT_PUBLIC_BACKEND_LOGIN_URL}>
-              <div className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
+            <a
+              target="_blank"
+              href={process.env.NEXT_PUBLIC_BACKEND_LOGIN_URL}
+              className="relative"
+            >
+              <div
+                className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3"
+                onMouseEnter={() => {
+                  const tooltip = document.getElementById(
+                    "login"
+                  ) as HTMLElement;
+                  tooltip.style.display = "flex";
+                }}
+                onMouseLeave={() => {
+                  const tooltip = document.getElementById(
+                    "login"
+                  ) as HTMLElement;
+                  tooltip.style.display = "none";
+                }}
+              >
                 <ArrowLeftOnRectangleIcon
                   className="h-8 w-8 text-white"
                   aria-label={"login"}
                 />
+              </div>
+              <div
+                className="absolute hidden justify-start dark:text-white text-sky-900 top-0 -right-20  px-2 translate-y-4   w-20 "
+                id={"login"}
+              >
+                {"login"}
               </div>
             </a>
           </div>

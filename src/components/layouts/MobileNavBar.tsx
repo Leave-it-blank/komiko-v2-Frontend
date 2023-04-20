@@ -84,13 +84,21 @@ function MobileNavBar() {
           {readerNav.map((item) =>
             item.current ? (
               <Link href={item.href} key={item.key}>
-                <div className="bg-sky-700 hover:bg-sky-500 rounded-md   w-full flex justify-center items-center p-3">
+                <div
+                  aria-label={item.name}
+                  title={item.name}
+                  className="bg-sky-700 hover:bg-sky-500 rounded-md   w-full flex justify-center items-center p-3"
+                >
                   {item.icon}
                 </div>
               </Link>
             ) : (
               <Link href={item.href} key={item.key}>
-                <div className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
+                <div
+                  aria-label={item.name}
+                  title={item.name}
+                  className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3"
+                >
                   {item.icon}
                 </div>
               </Link>
