@@ -54,6 +54,7 @@ function ComicsList({ chapters }: chapterData) {
             />
           </button>
         </div>
+
         {layout === "Advanced" ? (
           <div
             className="grid grid-cols-2  sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 pb-2 gap-2 md:gap-4 mx-auto justify-center sm:justify-start overflow-clip w-full"

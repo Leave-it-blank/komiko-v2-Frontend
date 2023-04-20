@@ -80,6 +80,7 @@ export type LATEST_APITYPE = {
 };
 
 export type COMICS_APITYPE = {
+  [x: string]: any;
   comics: {
     current_page: number;
     data: Array<{
@@ -200,6 +201,7 @@ export type CHAPTER_APITYPE = {
 };
 
 export type ALLCOMICS_APITYPE = {
+  [x: string]: any;
   comics: Array<{
     id: number;
     title: string;
@@ -208,7 +210,15 @@ export type ALLCOMICS_APITYPE = {
     choice: string;
     chapterCount: number;
     type: string;
-    isMature: boolean;
+    isMature: false;
     status: string;
+    thumb: string;
+    tags: Array<{
+      svg: any;
+      name: string;
+      tagCode: string;
+    }>;
+    author: string;
+    artist: string;
   }>;
 };
