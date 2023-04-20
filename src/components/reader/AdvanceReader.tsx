@@ -26,10 +26,13 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
         prev.style.height = height + "px";
         next.style.height = height + "px";
       }
-
       // console.log(width, height);
     }
   }, [index]);
+  useEffect(() => {
+    setIndex(0);
+  }, [chapter]);
+
   const handleNext = () => {
     if (index >= chapter.pages.length - 1) return;
     setIndex((index) => index + 1);
@@ -112,10 +115,33 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
             priority={true}
             referrerPolicy="no-referrer"
           ></Image>
+          <Image
+            className=" w-full h-full  overflow-y-scroll object-contain hidden"
+            onLoad={() => {}}
+            src={
+              chapter.pages[
+                index + 1 > chapter.pages.length ? index + 1 : index
+              ].thumb
+            }
+            alt={
+              chapter.pages[
+                index + 1 > chapter.pages.length ? index + 1 : index
+              ].fileName +
+              chapter.pages[
+                index + 1 > chapter.pages.length ? index + 1 : index
+              ].id
+            }
+            quality={80}
+            width={720}
+            height={5048}
+            priority={true}
+            referrerPolicy="no-referrer"
+          ></Image>
         </div>
         <ChapterNavigation
           nextCh={chapter.nextCh}
           prevCh={chapter.prevCh}
+          setIndex={setIndex}
           comic_titleSlug={chapter.comic_titleSlug}
         />
         <div
