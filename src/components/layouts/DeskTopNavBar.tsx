@@ -87,15 +87,59 @@ function DeskTopNavBar() {
           <div className="flex flex-col justify-center items-center h-full    w-full gap-3 my-3 mt-8">
             {readerNav.map((item) =>
               item.current ? (
-                <Link href={item.href} key={item.key}>
-                  <div className="  bg-sky-700 hover:bg-sky-500 rounded-md   w-full flex justify-center items-center p-3">
+                <Link href={item.href} key={item.key} className="relative">
+                  <div
+                    onMouseEnter={() => {
+                      const tooltip = document.getElementById(
+                        item.key + ""
+                      ) as HTMLElement;
+                      tooltip.style.display = "block";
+                    }}
+                    onMouseLeave={() => {
+                      const tooltip = document.getElementById(
+                        item.key + ""
+                      ) as HTMLElement;
+                      tooltip.style.display = "none";
+                    }}
+                    className="  bg-sky-700 hover:bg-sky-500 rounded-md   w-full flex justify-center items-center p-3"
+                    aria-label={item.name}
+                    title={item.name}
+                  >
                     {item.icon}
+                  </div>
+                  <div
+                    className="absolute flex justify-start dark:text-white text-sky-900 top-0 -right-20  px-2 translate-y-4   w-20 "
+                    id={item.key + ""}
+                  >
+                    {item.name}
                   </div>
                 </Link>
               ) : (
-                <Link href={item.href} key={item.key}>
-                  <div className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
+                <Link href={item.href} key={item.key} className="relative">
+                  <div
+                    onMouseEnter={() => {
+                      const tooltip = document.getElementById(
+                        item.key + ""
+                      ) as HTMLElement;
+                      tooltip.style.display = "flex";
+                    }}
+                    onMouseLeave={() => {
+                      const tooltip = document.getElementById(
+                        item.key + ""
+                      ) as HTMLElement;
+                      tooltip.style.display = "none";
+                    }}
+                    className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3"
+                    aria-label={item.name}
+                    title={item.name}
+                  >
                     {item.icon}
+                  </div>
+                  <div
+                    className="absolute flex justify-start dark:text-white text-sky-900 top-0 -right-20  px-2 translate-y-4   w-20 "
+                    id={item.key + ""}
+                  >
+                    {item.name}
                   </div>
                 </Link>
               )
@@ -104,7 +148,10 @@ function DeskTopNavBar() {
           <div className="flex flex-col justify-center items-center py-2 w-full my-3 ">
             <a target="_blank" href={process.env.NEXT_PUBLIC_BACKEND_LOGIN_URL}>
               <div className="hover:bg-sky-500 rounded-md bg-opacity-30 w-full flex justify-center items-center p-3">
-                <ArrowLeftOnRectangleIcon className="h-8 w-8 text-white" />
+                <ArrowLeftOnRectangleIcon
+                  className="h-8 w-8 text-white"
+                  aria-label={"login"}
+                />
               </div>
             </a>
           </div>
