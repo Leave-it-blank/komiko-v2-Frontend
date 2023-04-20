@@ -6,6 +6,7 @@ import {
   BookOpenIcon,
   ArrowDownIcon,
   ArrowUpIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
 
 import Link from "next/link";
@@ -43,6 +44,14 @@ function MobileNavBar() {
       guest: true,
       icon: <BookmarkIcon className="h-8 w-8 text-white" />,
       key: 4,
+    },
+    {
+      name: "Search",
+      href: "/search",
+      current: location.pathname === "/search" ? true : false,
+      guest: true,
+      icon: <MagnifyingGlassIcon className="h-8 w-8 text-white" />,
+      key: 5,
     },
   ];
 
