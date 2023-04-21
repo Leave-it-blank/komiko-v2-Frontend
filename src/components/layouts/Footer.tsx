@@ -3,7 +3,7 @@ function Footer() {
     <>
       <div className="absolute    w-4/5 ml-20  bg-transparent  ">
         <div className="container mx-auto px-4  relative ">
-          <span className=" fixed pointer-events-none select-none capitalize top-0 right-5 text-sky-500 dark:text-gray-200 dark:hover:text-gray-400   font-semibold py-1 text-xs">
+          <span className=" absolute pointer-events-none select-none capitalize top-0 md:-top-3 md:translate-x-1/2 right-8 text-sky-500 dark:text-gray-200 dark:hover:text-gray-400   font-semibold py-1 text-xs">
             made with ❤️ by {process.env.NEXT_PUBLIC_AUTHOR_NAME}
           </span>
           <div className="border-b-1 border-gray-700">

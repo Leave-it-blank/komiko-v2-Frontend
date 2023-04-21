@@ -57,8 +57,14 @@ function MobileNavBar() {
 
   const navHandler = () => {
     const navBar = document.getElementById("mob_nav_bar");
+    const logo = document.getElementById("logo_web");
     if (navBar) {
       if (navBar.style.display === "none") {
+        if(logo){
+          if(logo.style.display === "none"){
+              logo.style.display = "flex";
+          }
+        }
         navBar.style.display = "flex";
         const closeNav = document.getElementById("close_nav_mob");
         if (closeNav) {
@@ -70,7 +76,11 @@ function MobileNavBar() {
         }
       } else {
         navBar.style.display = "none";
-
+        if(logo){
+          if(logo.style.display === "flex"){
+              logo.style.display = "none";
+          }
+        }
         const closeNav = document.getElementById("close_nav_mob");
         if (closeNav) {
           closeNav.style.display = "none";

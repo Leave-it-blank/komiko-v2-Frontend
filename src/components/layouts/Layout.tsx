@@ -27,7 +27,7 @@ function Layout(props: {
       <main>{props.children}</main>
       <Footer />
       <MobileNavBar />
-      <div className="fixed top-6 md:left-2 left-12 -translate-x-10 md:translate-x-0 flex w-full justify-between flex-row items-center ">
+      <div className="fixed top-6 md:left-2 left-12 -translate-x-10 md:translate-x-0 flex w-full justify-between flex-row items-center " id="logo_web">
         {" "}
         <Image
           className="rounded-md cursor-pointer  -translate-y-2"
