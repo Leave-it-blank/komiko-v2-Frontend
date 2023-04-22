@@ -60,13 +60,18 @@ function DeskTopNavBar() {
   const navHandler = () => {
     const navBar = document.getElementById("desk_nav_bar");
     const logo = document.getElementById("logo_web");
-    
+    console.log(logo);
+    if(logo){
+      
+          logo.style.display = "none";
+   
+    }
     if (navBar) {
       if (navBar.style.display === "none") {
         if(logo){
-          if(logo.style.display === "none"){
+         
               logo.style.display = "flex";
-          }
+         
         }
         navBar.style.display = "flex";
         const closeNav = document.getElementById("close_nav");

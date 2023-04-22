@@ -61,9 +61,9 @@ function MobileNavBar() {
     if (navBar) {
       if (navBar.style.display === "none") {
         if(logo){
-          if(logo.style.display === "none"){
+         
               logo.style.display = "flex";
-          }
+          
         }
         navBar.style.display = "flex";
         const closeNav = document.getElementById("close_nav_mob");
