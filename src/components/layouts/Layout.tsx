@@ -5,6 +5,7 @@ import {
   ReactFragment,
   ReactPortal,
 } from "react";
+import Head from "next/head";
 import Image from "next/image";
 import Footer from "./Footer";
 import DeskTopNavBar from "./DeskTopNavBar";
@@ -23,11 +24,15 @@ function Layout(props: {
 }) {
   return (
     <div className="relative">
+        <Head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705209099510077"
+     crossOrigin="anonymous"></script>
+  </Head>
       <DeskTopNavBar />
       <main>{props.children}</main>
       <Footer />
       <MobileNavBar />
-      <div className="fixed top-6 md:left-2 left-12 -translate-x-10 md:translate-x-0 flex w-full justify-between flex-row items-center " id="logo_web">
+      <div className="fixed  top-6 md:left-2 left-12 -translate-x-10 md:translate-x-0 flex w-full justify-between flex-row items-center " id="logo_web">
         {" "}
         <Image
           className="rounded-md cursor-pointer  -translate-y-2"
