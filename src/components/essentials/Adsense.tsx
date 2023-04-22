@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Head from "next/head";
 declare global {
   interface Window {
     adsbygoogle: any;
@@ -35,8 +36,13 @@ const Adsense = ({
       clearInterval(interval);
     };
   }, []);
-  return (
-    <ins
+  return ( <>
+  <Head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705209099510077"
+     crossOrigin="anonymous"></script>
+  </Head>
+
+   <ins
       className="adsbygoogle"
       style={style}
       data-ad-client={dataAdClient}
@@ -44,6 +50,8 @@ const Adsense = ({
       data-ad-format={dataAdFormat}
       data-full-width-responsive={dataFullWidthResponsive}
     ></ins>
+  </>
+   
   );
 };
 
