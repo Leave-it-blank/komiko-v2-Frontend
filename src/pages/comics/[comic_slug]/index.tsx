@@ -5,6 +5,7 @@ import ComicProfile from "@/components/comics/ComicProfile";
 import { AiOutlineTag } from "react-icons/ai";
 import Support from "@/components/layouts/Support";
 import { loadDisque } from "@/utils/disque";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import Link from "next/link";
@@ -14,6 +15,38 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
 
   return (
     <div className="max-w-screen-2xl py-10 w-full min-h-screen mx-auto">
+      <Head>
+      <title>{comic.title} - ${process.env.NEXT_PUBLIC_SITE_NAME}</title>
+                <meta
+                    name="description"
+                    content={comic.description}
+                />
+                <meta name="image" content={comic.thumb} />
+                <meta property="og:type" content="website" />
+
+                <meta
+                    property="og:title"
+                    content={comic.title}
+                />
+                <meta
+                    property="og:description"
+                    content={comic.description}
+                />
+                <meta property="og:image" content={comic.thumb} />
+                <meta
+                    property="og:url"
+                    content={`${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic.titleSlug}`}
+                />
+                <meta name="twitter:title" content={comic.title} />
+                <meta name="twitter:description" content={comic.description} />
+                <meta name="twitter:image" content={comic.thumb} />
+
+
+                <meta
+                    property="twitter:url"
+                    content={`${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic.titleSlug}`}
+                />
+      </Head>
       <div className="flex flex-col xl:flex-row justify-evenly sm:mx-10 gap-2">
         <div className="xl:w-8/12 w-full  rounded-lg mx-auto">
           <ComicProfile comic={comic} />

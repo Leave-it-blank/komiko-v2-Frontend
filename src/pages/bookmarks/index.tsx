@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../../components/layouts/LoadingSpinner";
 import BookmarkList from "@/components/comics/BookmarkList";
-
+import Head from "next/head";
 export default function Comics() {
   const [comics, setComics] = useState<any>([]);
   const [loading, setLoading] = useState(true);
@@ -36,6 +36,9 @@ export default function Comics() {
   if (!loading && comics.length == 0) {
     return (
       <div className={`mx-auto`}>
+              <Head>
+      <title> Bookmarks - ${process.env.NEXT_PUBLIC_SITE_NAME}</title>
+      </Head>
         <div className="pt-10"> </div>
         <div className="max-w-screen-2xl flex  flex-col mx-auto mt-10">
           <div className="flex flex-col my-2 mx-auto">
@@ -54,6 +57,9 @@ export default function Comics() {
 
   return (
     <div className={`mx-auto`}>
+      <Head>
+      <title> Bookmarks - ${process.env.NEXT_PUBLIC_SITE_NAME}</title>
+      </Head>
       <div className="pt-10"> </div>
       <div className="max-w-screen-2xl flex  flex-col mx-auto ">
         <div className="flex flex-col my-2 mx-auto">

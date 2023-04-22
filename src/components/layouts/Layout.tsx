@@ -24,10 +24,33 @@ function Layout(props: {
 }) {
   return (
     <div className="relative">
-        <Head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705209099510077"
+     <Head>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705209099510077"
      crossOrigin="anonymous"></script>
-  </Head>
+
+      <title>HomePage - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
+        <meta
+          name="description"
+          content={` ${process.env.NEXT_PUBLIC_SITE_NAME}: HomePage, A place to read manga, manhua and manwha for free of cost.`}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="HomePage, where you can read comics for free." />
+        <meta
+          property="og:description"
+          content={` ${process.env.NEXT_PUBLIC_SITE_NAME}: HomePage, A place to read manga, manhua and manwha for free of cost.`}
+        />
+
+        <meta property="og:url" content="https://lynxscans.com/" />
+
+        <meta
+          name="twitter:title"
+          content= {`${process.env.NEXT_PUBLIC_SITE_NAME} : HomePage, where you can read comics for free.`}
+        />
+        <meta
+          name="twitter:description"
+          content="webcomics: HomePage, A place to read manga, manhua and manwha for free of cost."
+        />
+     </Head>
       <DeskTopNavBar />
       <main>{props.children}</main>
       <Footer />

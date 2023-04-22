@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import { LATEST_APITYPE } from "@/utils/types";
+import Head from "next/head";
 import { getLatestPage } from "../../utils/api";
 
 import NewReleases from "../../components/latest/NewReleases";
@@ -16,6 +17,9 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Latest({ chapters }: LATEST_APITYPE) {
   return (
     <div className={`mx-auto`}>
+            <Head>
+      <title> Comics - ${process.env.NEXT_PUBLIC_SITE_NAME}</title>
+      </Head>
       <div className="pt-10"> </div>
       <div className="max-w-screen-2xl flex  flex-col mx-auto">
         <div className="flex flex-col my-2 mx-auto">

@@ -1,13 +1,14 @@
 import { COMICS_APITYPE } from "@/utils/types";
 import { getComicsPage } from "../../utils/api";
-
-import NewReleases from "../../components/latest/NewReleases";
-
+import Head from "next/head";
 import Pagination from "../../components/essentials/Pagination";
 import ComicsList from "../../components/comics/ComicsList";
 export default function Comics({ comics }: COMICS_APITYPE) {
   return (
     <div className={`mx-auto`}>
+             <Head>
+      <title> Comics - ${process.env.NEXT_PUBLIC_SITE_NAME}</title>
+      </Head>
       <div className="pt-10"> </div>
       <div className="max-w-screen-2xl flex  flex-col mx-auto ">
         <div className="flex flex-col my-2 mx-auto">
