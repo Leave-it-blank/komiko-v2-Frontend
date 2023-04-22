@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Head from "next/head";
 declare global {
   interface Window {
     adsbygoogle: any;
@@ -37,11 +36,6 @@ const Adsense = ({
     };
   }, []);
   return ( <>
-  <Head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705209099510077"
-     crossOrigin="anonymous"></script>
-  </Head>
-
    <ins
       className="adsbygoogle"
       style={style}
