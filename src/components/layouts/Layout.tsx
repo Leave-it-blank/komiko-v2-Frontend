@@ -11,6 +11,7 @@ import Footer from "./Footer";
 import DeskTopNavBar from "./DeskTopNavBar";
 import MobileNavBar from "./MobileNavBar";
 import DarkModeToggle from "./DarkModeToggle";
+import Script from "next/script";
 function Layout(props: {
   children:
     | string
@@ -25,9 +26,12 @@ function Layout(props: {
   const title = `HomePage - ${process.env.NEXT_PUBLIC_SITE_NAME}`;
   return (
     <div className="relative">
+ 
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705209099510077"
+          crossOrigin="anonymous" /> 
+   
      <Head>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705209099510077"
-     crossOrigin="anonymous"></script>
+  
    <meta charSet="utf-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,7 +52,7 @@ function Layout(props: {
 
         <meta property="og:url" content="https://lynxscans.com/" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+ 
         <meta
           name="twitter:title"
           content= {`${process.env.NEXT_PUBLIC_SITE_NAME} : HomePage, where you can read comics for free.`}
