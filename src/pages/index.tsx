@@ -8,6 +8,7 @@ import Support from "@/components/layouts/Support";
 import { loadDisque } from "@/utils/disque";
 import { useEffect } from "react";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
+import Adsense from "@/components/essentials/Adsense";
 
 //className={`${inter.className} mb-3 text-2xl font-semibold`}
 
@@ -26,10 +27,45 @@ export default function Home({
         <div className="flex flex-col my-2 mx-auto">
           <NewRelease latest={latest} />
         </div>
+        <div
+          className="ads md:pl-20 px-4   my-2 max-auto "
+          id="home_ads_aboveRecommend"
+        >
+          <Adsense
+            style={{ display: "block" }}
+            dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+            dataAdSlot={process.env.NEXT_PUBLIC_ADS_HOME_SLOT_1}
+            dataAdFormat={"auto"}
+            dataFullWidthResponsive={true}
+          />
+        </div>
+        <div
+          className="ads md:pl-20 px-4  my-2 max-auto "
+          id="home_ads_aboveLatest"
+        >
+          <Adsense
+            style={{ display: "block" }}
+            dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+            dataAdSlot={process.env.NEXT_PUBLIC_ADS_HOME_SLOT_2}
+            dataAdFormat={"auto"}
+            dataFullWidthResponsive={true}
+          />
+        </div>
         <div className="flex flex-col my-2 mx-auto">
           <TopComics recommended={recommended} />
         </div>
-
+        <div
+          className="ads md:pl-20 px-4 my-2 max-auto"
+          id="home_ads_aboveDiscord"
+        >
+          <Adsense
+            style={{ display: "block" }}
+            dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+            dataAdSlot={process.env.NEXT_PUBLIC_ADS_HOME_SLOT_3}
+            dataAdFormat={"auto"}
+            dataFullWidthResponsive={true}
+          />
+        </div>
         <div className="flex flex-col my-2 mx-auto w-full ">
           <div className="md:pl-20 w-full">
             <div className="py-3 w-full ">

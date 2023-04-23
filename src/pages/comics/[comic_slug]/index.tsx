@@ -4,48 +4,37 @@ import { dateFromMMDOYYYY, dateFromNow } from "@/utils/dates";
 import ComicProfile from "@/components/comics/ComicProfile";
 import { AiOutlineTag } from "react-icons/ai";
 import Support from "@/components/layouts/Support";
-import { loadDisque } from "@/utils/disque";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import Adsense from "@/components/essentials/Adsense";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import Link from "next/link";
 
 export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
   const disq = `${process.env.NEXT_PUBLIC_COMMENT_DISQ}` ?? "mysite";
-  const title = `${comic.title} - ${process.env.NEXT_PUBLIC_SITE_NAME}`
+  const title = `${comic.title} - ${process.env.NEXT_PUBLIC_SITE_NAME}`;
   return (
     <div className="max-w-screen-2xl py-10 w-full min-h-screen mx-auto">
       <Head>
-      <title>{title}</title>
-                <meta
-                    name="description"
-                    content={comic.description}
-                />
-                <meta name="image" content={comic.thumb} />
-                <meta property="og:type" content="website" />
+        <title>{title}</title>
+        <meta name="description" content={comic.description} />
+        <meta name="image" content={comic.thumb} />
+        <meta property="og:type" content="website" />
 
-                <meta
-                    property="og:title"
-                    content={comic.title}
-                />
-                <meta
-                    property="og:description"
-                    content={comic.description}
-                />
-                <meta property="og:image" content={comic.thumb} />
-                <meta
-                    property="og:url"
-                    content={`${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic.titleSlug}`}
-                />
-                <meta name="twitter:title" content={comic.title} />
-                <meta name="twitter:description" content={comic.description} />
-                <meta name="twitter:image" content={comic.thumb} />
+        <meta property="og:title" content={comic.title} />
+        <meta property="og:description" content={comic.description} />
+        <meta property="og:image" content={comic.thumb} />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_FRONTEND_URL}/comics/${comic.titleSlug}`}
+        />
+        <meta name="twitter:title" content={comic.title} />
+        <meta name="twitter:description" content={comic.description} />
+        <meta name="twitter:image" content={comic.thumb} />
 
-
-                <meta
-                    property="twitter:url"
-                    content={`${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${comic.titleSlug}`}
-                />
+        <meta
+          property="twitter:url"
+          content={`${process.env.NEXT_PUBLIC_FRONTEND_URL}/comics/${comic.titleSlug}`}
+        />
       </Head>
       <div className="flex flex-col xl:flex-row justify-evenly sm:mx-10 gap-2">
         <div className="xl:w-8/12 w-full  rounded-lg mx-auto">
@@ -72,13 +61,13 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
             id="props.ads_comic.below_content"
             className="flex flex-col my-2 mb-5"
           >
-            {/* <Adsense
+            <Adsense
               style={{ display: "block" }}
-              dataAdClient={"ca-pub-47052090995100"}
-              dataAdSlot={"73231543"}
+              dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+              dataAdSlot={process.env.NEXT_PUBLIC_ADS_COMIC_SLOT_1}
               dataAdFormat={"auto"}
-              dataFullWidthResponsive={true} 
-            />*/}
+              dataFullWidthResponsive={true}
+            />
           </div>
         </div>
         <div className="rounded-lg w-full  xl:w-4/12 xl:ml-10 mx-auto">
@@ -183,26 +172,26 @@ export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
             id="props.ads_comic.below_tags"
             className="flex flex-col my-2 mb-5"
           >
-            {/* <Adsense
+            <Adsense
               style={{ display: "block" }}
-              dataAdClient={"ca-pub-47052090995100"}
-              dataAdSlot={"62432758"}
+              dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+              dataAdSlot={process.env.NEXT_PUBLIC_ADS_COMIC_VIEW_SLOT_2}
               dataAdFormat={"auto"}
               dataFullWidthResponsive={true}
-            /> */}
+            />
           </div>
           <Support />
           <div
             id="props.ads_comic.below_support"
             className="flex flex-col my-2 mb-5"
           >
-            {/* <Adsense
+            <Adsense
               style={{ display: "block" }}
-              dataAdClient={"ca-pub-470520909951"}
-              dataAdSlot={"353224"}
+              dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+              dataAdSlot={process.env.NEXT_PUBLIC_ADS_COMIC_VIEW_SLOT_3}
               dataAdFormat={"auto"}
               dataFullWidthResponsive={true}
-            /> */}
+            />
           </div>
         </div>
       </div>

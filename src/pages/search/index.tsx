@@ -2,6 +2,7 @@ import { getAllComics } from "../../utils/api";
 import { ALLCOMICS_APITYPE } from "../../utils/types";
 import { useCallback, useEffect, useRef, useState } from "react";
 import SearchList from "@/components/search/SearchList";
+import Adsense from "@/components/essentials/Adsense";
 // Path: src/pages/search/index.js
 export default function SearchPage({ comics }: { comics: ALLCOMICS_APITYPE }) {
   const searchRef = useRef(null);
@@ -152,8 +153,22 @@ export default function SearchPage({ comics }: { comics: ALLCOMICS_APITYPE }) {
                 </div>
 
                 <div>
+                  <Adsense
+                    style={{ display: "block" }}
+                    dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+                    dataAdSlot={process.env.NEXT_PUBLIC_ADS_SEARCH_SLOT_1}
+                    dataAdFormat={"auto"}
+                    dataFullWidthResponsive={true}
+                  />
                   {/* @ts-ignore */}
                   <SearchList comics={results} />
+                  <Adsense
+                    style={{ display: "block" }}
+                    dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+                    dataAdSlot={process.env.NEXT_PUBLIC_ADS_SEARCH_SLOT_2}
+                    dataAdFormat={"auto"}
+                    dataFullWidthResponsive={true}
+                  />
                 </div>
               </div>
             </div>

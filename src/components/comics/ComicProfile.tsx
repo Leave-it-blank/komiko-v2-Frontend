@@ -164,13 +164,13 @@ function ComicProfile({ comic }: ComicsType) {
             id="props.ads_comic.ads_below_title"
             className="hidden xl:block mb-16"
           >
-            {/* <Adsense
+            <Adsense
               style={{ display: "block" }}
-              dataAdClient={"ca-pub-4705209099510"}
-              dataAdSlot={"9988830"}
+              dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+              dataAdSlot={process.env.NEXT_PUBLIC_ADS_COMIC_PROFILE_SLOT_1}
               dataAdFormat={"auto"}
               dataFullWidthResponsive={true}
-            /> */}
+            />
           </div>
           <div className="absolute bottom-0 flex justify-around w-full text-white bg-white dark:bg-black rounded-lg bg-opacity-50 dark:bg-opacity-20 p-3">
             <button
@@ -215,13 +215,13 @@ function ComicProfile({ comic }: ComicsType) {
         className="px-3 mb-2 sm:mb-5 mx-auto rounded-lg min-w-fit xl:hidden"
       >
         <div className="flex flex-col my-2">
-          {/* <Adsense
+          <Adsense
             style={{ display: "block" }}
-            dataAdClient={"ca-pub-4705209099510"}
-            dataAdSlot={"4696990"}
+            dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+            dataAdSlot={process.env.NEXT_PUBLIC_ADS_COMIC_PROFILE_SLOT_2}
             dataAdFormat={"auto"}
             dataFullWidthResponsive={true}
-          /> */}
+          />
         </div>
       </div>
       <div className="sm:px-10 px-3 my-2 mx-auto  mb-4 bg-sky-200 dark:bg-neutral-900 py-5 rounded-lg min-w-fit">
@@ -245,6 +245,19 @@ function ComicProfile({ comic }: ComicsType) {
                   </div>
                 )}
               </div>
+              {(key == 1 || key == 3 || key == 5) && (
+                <>
+                  <Adsense
+                    style={{ display: "block" }}
+                    dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+                    dataAdSlot={
+                      process.env.NEXT_PUBLIC_ADS_COMIC_PROFILE_SLOT_3
+                    }
+                    dataAdFormat={"auto"}
+                    dataFullWidthResponsive={true}
+                  />
+                </>
+              )}
 
               <div
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
@@ -303,20 +316,6 @@ function ComicProfile({ comic }: ComicsType) {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-      <div
-        id="ads-comic-middle"
-        className="px-3 mb-2 sm:mb-5 mx-auto rounded-lg min-w-fit"
-      >
-        <div className="flex flex-col my-2">
-          {/* <Adsense
-            style={{ display: "block" }}
-            dataAdClient={"ca-pub-4705209099510"}
-            dataAdSlot={"4696990"}
-            dataAdFormat={"auto"}
-            dataFullWidthResponsive={true}
-          /> */}
         </div>
       </div>
     </>

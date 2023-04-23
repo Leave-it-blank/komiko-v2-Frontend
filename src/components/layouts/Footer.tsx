@@ -17,10 +17,10 @@ function Footer() {
                 <ul className="flex flex-wrap list-none md:justify-end justify-end">
                   <li>
                     <a
-                      href={process.env.NEXT_PUBLIC_SUPPORT_EMAIL}
+                      href={`"mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL}`}
                       className="   text-sky-900   dark:hover:text-gray-400 text-sm font-semibold block py-1 px-3"
                     >
-                      Support us
+                      Contact Us
                     </a>
                   </li>
                 </ul>

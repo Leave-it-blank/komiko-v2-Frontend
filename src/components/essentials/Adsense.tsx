@@ -35,17 +35,17 @@ const Adsense = ({
       clearInterval(interval);
     };
   }, []);
-  return ( <>
-   <ins
-      className="adsbygoogle"
-      style={style}
-      data-ad-client={dataAdClient}
-      data-ad-slot={dataAdSlot}
-      data-ad-format={dataAdFormat}
-      data-full-width-responsive={dataFullWidthResponsive}
-    ></ins>
-  </>
-   
+  return (
+    <>
+      <ins
+        className="adsbygoogle"
+        style={style}
+        data-ad-client={dataAdClient}
+        data-ad-slot={dataAdSlot}
+        data-ad-format={dataAdFormat}
+        data-full-width-responsive={dataFullWidthResponsive}
+      ></ins>
+    </>
   );
 };
 

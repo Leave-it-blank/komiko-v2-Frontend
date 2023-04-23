@@ -1,11 +1,11 @@
 import { CHAPTER_APITYPE } from "@/utils/types";
 import { useEffect, useState } from "react";
-import { loadDisque } from "@/utils/disque";
 import { getChapter } from "@/utils/api";
 import BasicReader from "@/components/reader/BasicReader";
 import LoadingSpinner from "@/components/layouts/LoadingSpinner";
 import AdvanceReader from "@/components/reader/AdvanceReader";
 import Head from "next/head";
+import Adsense from "@/components/essentials/Adsense";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 
 function ChapterPage({ chapter }: CHAPTER_APITYPE) {
@@ -31,7 +31,6 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
     localStorage.setItem(chapter.comic_ID, JSON.stringify([...comicChapters]));
   };
   useEffect(() => {
-
     const myreader = localStorage.getItem("reader") ?? "basic";
     setReader(myreader);
     const select = document.querySelector(
@@ -52,7 +51,6 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
   };
 
   useEffect(() => {
-    
     const myQuality = localStorage.getItem("quality") ?? "90";
     setQuality(Number(myQuality));
     const select = document.querySelector(
@@ -72,7 +70,6 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
     setQuality(Number(quality.value));
   };
 
-
   if (reader == "loading") {
     return <LoadingSpinner />;
   }
@@ -90,7 +87,7 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
         <meta property="og:image" content={chapter.comic_thumb} />
         <meta
           property="og:url"
-          content={`${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${chapter.comic_titleSlug}`}
+          content={`${process.env.NEXT_PUBLIC_FRONTEND_URL}/comics/${chapter.comic_titleSlug}`}
         />
         <meta name="twitter:title" content={chapter.comic_title} />
         <meta name="twitter:description" content={chapter.comic_description} />
@@ -98,7 +95,7 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
 
         <meta
           property="twitter:url"
-          content={`${process.env.NEXT_PUBLIC_BACKEND_URL}/comics/${chapter.comic_titleSlug}`}
+          content={`${process.env.NEXT_PUBLIC_FRONTEND_URL}/comics/${chapter.comic_titleSlug}`}
         />
       </Head>
       <div className="container mx-auto   pt-10 px-1 min-h-screen max-w-4xl  mt-10">
@@ -144,9 +141,37 @@ function ChapterPage({ chapter }: CHAPTER_APITYPE) {
             </form>
           </div>
         </div>
+        <div
+          id="props.ads_reader.ads_reader_above_content"
+          className="flex flex-col sm:my-2"
+        >
+          <Adsense
+            style={{ display: "block" }}
+            dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+            dataAdSlot={process.env.NEXT_PUBLIC_ADS_READER_SLOT_1}
+            dataAdFormat={"auto"}
+            dataFullWidthResponsive={true}
+          />
+        </div>
 
-        {reader === "basic" && <BasicReader chapter={chapter}  quality={quality} />}
-        {reader === "advanced" && <AdvanceReader chapter={chapter}  quality={quality}  />}
+        {reader === "basic" && (
+          <BasicReader chapter={chapter} quality={quality} />
+        )}
+        {reader === "advanced" && (
+          <AdvanceReader chapter={chapter} quality={quality} />
+        )}
+        <div
+          id="props.ads_reader.ads_reader_below_content"
+          className="flex flex-col my-2"
+        >
+          <Adsense
+            style={{ display: "block" }}
+            dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+            dataAdSlot={process.env.NEXT_PUBLIC_ADS_READER_SLOT_2}
+            dataAdFormat={"auto"}
+          />
+        </div>
+
         <div className="flex flex-col md:flex-col justify-center sm:justify-evenly gap-3 my-2 mx-auto  bg-sky-300 dark:bg-neutral-900 py-5   rounded-lg min-w-fit px-5 sm:px-10">
           {/* <!-- here we will put description inside box --> */}
           <div className="flex flex-row justify-between items-center">

@@ -8,16 +8,15 @@ import {
   ArrowLeftOnRectangleIcon,
 } from "@heroicons/react/24/solid";
 import LoadingSpinner from "../layouts/LoadingSpinner";
- 
+
 type quality = {
-  quality: number,
- }
+  quality: number;
+};
 
 function AdvanceReader(props: any) {
   const { chapter }: CHAPTER_APITYPE = props;
-  const {quality}: quality = props.quality;
+  const { quality }: quality = props.quality;
 
- 
   const [loading, setLoading] = useState(true);
   const [index, setIndex] = useState(0);
   const handle = useFullScreenHandle();
@@ -30,13 +29,9 @@ function AdvanceReader(props: any) {
       let prev = document.getElementById("prev");
       let next = document.getElementById("next");
       if (prev && next) {
-        //  console.log("prev", prev);
-        // console.log("next", next);
-        // console.log("height", height);
         prev.style.height = height + "px";
         next.style.height = height + "px";
       }
-      // console.log(width, height);
     }
   };
   useEffect(() => {
@@ -156,13 +151,12 @@ function AdvanceReader(props: any) {
             width={1080}
             height={2000}
             referrerPolicy="no-referrer"
-             
-            loading='lazy'
+            priority={true}
             onLoadingComplete={() => {
               setLoading(false);
             }}
           ></Image>
-          {index + 1 < chapter.pages.length && (
+          {/* {index + 1 < chapter.pages.length && (
             <Image
               className=" w-full h-full  overflow-y-scroll object-contain hidden"
               src={chapter.pages[index].thumb}
@@ -183,7 +177,7 @@ function AdvanceReader(props: any) {
               priority={true}
               referrerPolicy="no-referrer"
             ></Image>
-          )}
+          )} */}
         </div>
         <ChapterNavigation
           nextCh={chapter.nextCh}
