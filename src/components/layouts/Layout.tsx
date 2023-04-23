@@ -103,20 +103,20 @@ function Layout(props: {
         <div className=" -translate-x-7 translate-y-2">
           <DarkModeToggle />
         </div>
-        <div
-          id="ads_global_nav_2"
-          className="mx-auto container max-w-screen-xl max-h-20 md:pl-20 py-2"
-        >
-          <Adsense
-            style={{ display: "block" }}
-            dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
-            dataAdSlot={process.env.NEXT_PUBLIC_ADS_LAYOUT_SLOT_2}
-            dataAdFormat={"auto"}
-            dataFullWidthResponsive={true}
-          />
-        </div>
-        <div className="mb-10"></div>
       </div>
+      <div
+        id="ads_global_nav_2"
+        className="mx-auto container max-w-screen-xl max-h-20 md:pl-20 py-2"
+      >
+        <Adsense
+          style={{ display: "block" }}
+          dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+          dataAdSlot={process.env.NEXT_PUBLIC_ADS_LAYOUT_SLOT_2}
+          dataAdFormat={"auto"}
+          dataFullWidthResponsive={true}
+        />
+      </div>
+      <div className="mb-10"></div>
     </div>
   );
 }
