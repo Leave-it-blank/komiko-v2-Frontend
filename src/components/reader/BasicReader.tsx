@@ -1,16 +1,12 @@
 import Image from "next/image";
 import ChapterNavigation from "@/components/comics/ChapterNavigation";
 import { CHAPTER_APITYPE } from "@/utils/types";
- 
- type quality = {
-  quality: number,
- }
 
 function BasicReader(props: any) {
   const { chapter }: CHAPTER_APITYPE = props;
- 
-  const {quality}: quality = props.quality;
 
+  const quality: number = props.quality;
+  console.log(quality);
 
   return (
     <>
@@ -22,10 +18,10 @@ function BasicReader(props: any) {
         </div>
       </div> */}
       <small className="text-sky-900 dark:text-white flex flex-row gap-3 px-2 items-center ">
-        <div className=" text-xl ">{ chapter.comic_title}</div>
+        <div className=" text-xl ">{chapter.comic_title}</div>
         <div> ●</div>
 
-        <div>Vol { chapter.vol_no}</div>
+        <div>Vol {chapter.vol_no}</div>
         <div> ●</div>
 
         <div>Chapter {chapter.ch_no}</div>
@@ -68,7 +64,6 @@ function BasicReader(props: any) {
               height={5048}
               quality={quality}
               priority={true}
-              
               referrerPolicy="no-referrer"
             />
             {key === 3 || key === 6 || key === 12 ? (

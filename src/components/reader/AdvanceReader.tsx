@@ -9,14 +9,10 @@ import {
 } from "@heroicons/react/24/solid";
 import LoadingSpinner from "../layouts/LoadingSpinner";
 
-type quality = {
-  quality: number;
-};
-
 function AdvanceReader(props: any) {
   const { chapter }: CHAPTER_APITYPE = props;
-  const { quality }: quality = props.quality;
-
+  const quality: number = props.quality;
+  console.log(quality);
   const [loading, setLoading] = useState(true);
   const [index, setIndex] = useState(0);
   const handle = useFullScreenHandle();
