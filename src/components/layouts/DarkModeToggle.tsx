@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import useDarkMode from "../../hooks/useDarkMode";
 
@@ -19,7 +19,7 @@ function DarkModeToggle() {
     <>
       <DarkModeSwitch
         className="relative inline-flex h-8 w-11 items-center rounded-full"
-        sunColor="blue"
+        sunColor="white"
         moonColor="blue"
         checked={darkSide}
         onChange={toggleDarkMode}
@@ -30,6 +30,3 @@ function DarkModeToggle() {
 }
 
 export default DarkModeToggle;
-function useEffects(arg0: () => void) {
-  throw new Error("Function not implemented.");
-}
