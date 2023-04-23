@@ -22,13 +22,16 @@ function Layout(props: {
     | null
     | undefined;
 }) {
+  const title = `HomePage - ${process.env.NEXT_PUBLIC_SITE_NAME}`;
   return (
     <div className="relative">
      <Head>
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4705209099510077"
      crossOrigin="anonymous"></script>
-
-      <title>HomePage - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
+   <meta charSet="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>{title}</title>
         <meta
           name="description"
           content={` ${process.env.NEXT_PUBLIC_SITE_NAME}: HomePage, A place to read manga, manhua and manwha for free of cost.`}
@@ -39,9 +42,13 @@ function Layout(props: {
           property="og:description"
           content={` ${process.env.NEXT_PUBLIC_SITE_NAME}: HomePage, A place to read manga, manhua and manwha for free of cost.`}
         />
+          <script async
+              src={`https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG}`}
+              /> 
 
         <meta property="og:url" content="https://lynxscans.com/" />
-
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <meta
           name="twitter:title"
           content= {`${process.env.NEXT_PUBLIC_SITE_NAME} : HomePage, where you can read comics for free.`}
@@ -50,6 +57,7 @@ function Layout(props: {
           name="twitter:description"
           content="webcomics: HomePage, A place to read manga, manhua and manwha for free of cost."
         />
+        
      </Head>
       <DeskTopNavBar />
       <main>{props.children}</main>

@@ -8,8 +8,16 @@ import {
   ArrowLeftOnRectangleIcon,
 } from "@heroicons/react/24/solid";
 import LoadingSpinner from "../layouts/LoadingSpinner";
+ 
+type quality = {
+  quality: number,
+ }
 
-function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
+function AdvanceReader(props: any) {
+  const { chapter }: CHAPTER_APITYPE = props;
+  const {quality}: quality = props.quality;
+
+ 
   const [loading, setLoading] = useState(true);
   const [index, setIndex] = useState(0);
   const handle = useFullScreenHandle();
@@ -144,11 +152,12 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
               "comic " +
               chapter.comic_titleSlug
             }
-            quality={80}
-            width={720}
-            height={5048}
-            priority={true}
+            quality={quality}
+            width={1080}
+            height={2000}
             referrerPolicy="no-referrer"
+             
+            loading='lazy'
             onLoadingComplete={() => {
               setLoading(false);
             }}
@@ -167,9 +176,10 @@ function AdvanceReader({ chapter }: CHAPTER_APITYPE) {
                 "comic " +
                 chapter.comic_titleSlug
               }
-              quality={80}
-              width={720}
-              height={5048}
+              quality={quality}
+              width={1080}
+              height={2000}
+              
               priority={true}
               referrerPolicy="no-referrer"
             ></Image>

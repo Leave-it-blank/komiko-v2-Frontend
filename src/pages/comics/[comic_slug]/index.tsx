@@ -12,11 +12,11 @@ import Link from "next/link";
 
 export default function Comics({ comic }: COMIC_DETAILS_APITYPE) {
   const disq = `${process.env.NEXT_PUBLIC_COMMENT_DISQ}` ?? "mysite";
-
+  const title = `${comic.title} - ${process.env.NEXT_PUBLIC_SITE_NAME}`
   return (
     <div className="max-w-screen-2xl py-10 w-full min-h-screen mx-auto">
       <Head>
-      <title>{comic.title} - ${process.env.NEXT_PUBLIC_SITE_NAME}</title>
+      <title>{title}</title>
                 <meta
                     name="description"
                     content={comic.description}
