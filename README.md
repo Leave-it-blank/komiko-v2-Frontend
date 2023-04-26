@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fe64f957-5439-46d1-a43e-6d672fd8c4e4/deploy-status)](https://app.netlify.com/sites/voluble-travesseiro-8b8b83/deploys)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

@@ -153,6 +153,7 @@ export default function SearchPage({ comics }: { comics: ALLCOMICS_APITYPE }) {
                 </div>
 
                 <div>
+           <div className="ads  py-4 mx-auto"  >
                   <Adsense
                     style={{ display: "block" }}
                     dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
@@ -160,8 +161,10 @@ export default function SearchPage({ comics }: { comics: ALLCOMICS_APITYPE }) {
                     dataAdFormat={"auto"}
                     dataFullWidthResponsive={true}
                   />
+           </div>
                   {/* @ts-ignore */}
                   <SearchList comics={results} />
+  <div className="ads  py-4 mx-auto"   >
                   <Adsense
                     style={{ display: "block" }}
                     dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
@@ -169,6 +172,8 @@ export default function SearchPage({ comics }: { comics: ALLCOMICS_APITYPE }) {
                     dataAdFormat={"auto"}
                     dataFullWidthResponsive={true}
                   />
+            </div>
+  <div className="mt-10 pt-5"> </div>
                 </div>
               </div>
             </div>
