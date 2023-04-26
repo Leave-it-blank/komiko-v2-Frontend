@@ -10,8 +10,6 @@ import { useEffect } from "react";
 import { DiscussionEmbed, CommentCount } from "disqus-react";
 import Adsense from "@/components/essentials/Adsense";
 
-//className={`${inter.className} mb-3 text-2xl font-semibold`}
-
 export default function Home({
   latest,
   recommended,
@@ -40,7 +38,7 @@ export default function Home({
           />
         </div>
         <div
-          className="ads md:pl-20 px-4  my-2 max-auto "
+          className="ads md:pl-20 px-4  my-2 mx-auto "
           id="home_ads_aboveLatest"
         >
           <Adsense
@@ -55,7 +53,7 @@ export default function Home({
           <TopComics recommended={recommended} />
         </div>
         <div
-          className="ads md:pl-20 px-4 my-2 max-auto"
+          className="ads md:pl-20 px-4 my-2 mx-auto"
           id="home_ads_aboveDiscord"
         >
           <Adsense

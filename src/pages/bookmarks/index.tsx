@@ -38,7 +38,7 @@ export default function Comics() {
     return (
       <div className={`mx-auto`}>
         <Head>
-          <title> Bookmarks - ${process.env.NEXT_PUBLIC_SITE_NAME}</title>
+          <title> Bookmarks - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
         </Head>
         <div className="pt-10"> </div>
         <div className="max-w-screen-2xl flex  flex-col mx-auto mt-10">
@@ -48,6 +48,15 @@ export default function Comics() {
                 <h1 className="text-3xl font-bold text-center text-sky-900 dark:text-white">
                   No Bookmarks
                 </h1>
+          <div className="ads px-4 md:pl-20 mx-auto" id="Bookmark_ads_aboveLatest">
+            <Adsense
+              style={{ display: "block" }}
+              dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
+              dataAdSlot={process.env.NEXT_PUBLIC_ADS_BOOKMARK_SLOT_1}
+              dataAdFormat={"auto"}
+              dataFullWidthResponsive={true}
+            />
+          </div>
               </div>
             </div>
           </div>
@@ -64,7 +73,7 @@ export default function Comics() {
       <div className="pt-10"> </div>
       <div className="max-w-screen-2xl flex  flex-col mx-auto ">
         <div className="flex flex-col my-2 mx-auto">
-          <div className="ads px-4 md:pl-20" id="Bookmark_ads_aboveLatest">
+          <div className="ads px-4 md:pl-20 mx-auto" id="Bookmark_ads_aboveLatest">
             <Adsense
               style={{ display: "block" }}
               dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
@@ -76,7 +85,9 @@ export default function Comics() {
           <div className="min-h-screen">
             <BookmarkList data={comics} />
           </div>
-          <div className="ads px-4 md:pl-20" id="Latest_ads_aboveLatest">
+        
+        </div>
+     <div className="ads px-4 md:pl-20 mx-auto" id="Latest_ads_aboveLatest">
             <Adsense
               style={{ display: "block" }}
               dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
@@ -85,7 +96,7 @@ export default function Comics() {
               dataFullWidthResponsive={true}
             />
           </div>
-        </div>
+        <div className="mt-10 pt-5"> </div>
       </div>
     </div>
   );

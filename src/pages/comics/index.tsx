@@ -14,7 +14,7 @@ export default function Comics({ comics }: COMICS_APITYPE) {
       <div className="pt-10"> </div>
       <div className="max-w-screen-2xl flex  flex-col mx-auto ">
         <div className="flex flex-col my-2 mx-auto">
-          <div className="ads px-4 md:pl-20" id="Bookmark_ads_aboveLatest">
+          <div className="ads px-4 md:pl-20 mx-auto" id="Bookmark_ads_aboveLatest">
             <Adsense
               style={{ display: "block" }}
               dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
@@ -27,7 +27,7 @@ export default function Comics({ comics }: COMICS_APITYPE) {
             <ComicsList chapters={comics["data"]} />
           </div>
           <div
-            className="ads hidden xl:block md:pl-20"
+            className="ads hidden xl:block md:pl-20 mx-auto"
             id="Comic_ads_aboveLatest"
           >
             <Adsense
