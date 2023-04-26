@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ['api.lynxscans.com'],
   },
+  output: 'standalone',
   
 }
 
