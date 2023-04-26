@@ -26,7 +26,7 @@ export default function Home({
           <NewRelease latest={latest} />
         </div>
         <div
-          className="ads md:pl-20 px-4   my-2 max-auto "
+          className="ads md:pl-20 px-4   my-2 mx-auto "
           id="home_ads_aboveRecommend"
         >
           <Adsense

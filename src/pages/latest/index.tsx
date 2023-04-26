@@ -15,7 +15,10 @@ export default function Latest({ chapters }: LATEST_APITYPE) {
       <div className="pt-10"> </div>
       <div className="max-w-screen-2xl flex  flex-col mx-auto">
         <div className="flex flex-col my-2 mx-auto">
-          <div className="ads px-4 md:pl-20 mx-auto" id="Bookmark_ads_aboveLatest">
+          <div
+            className="ads px-4 md:pl-20 mx-auto w-full"
+            id="Bookmark_ads_aboveLatest"
+          >
             <Adsense
               style={{ display: "block" }}
               dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
@@ -27,7 +30,10 @@ export default function Latest({ chapters }: LATEST_APITYPE) {
           <div className="min-h-screen">
             <NewReleases chapters={chapters["data"]} />
           </div>
-          <div className="ads px-4 md:pl-20 mx-auto" id="Latest_ads_aboveLatest">
+          <div
+            className="ads px-4 md:pl-20 mx-auto w-full"
+            id="Latest_ads_aboveLatest"
+          >
             <Adsense
               style={{ display: "block" }}
               dataAdClient={process.env.NEXT_PUBLIC_ADSENSE_PUB}
