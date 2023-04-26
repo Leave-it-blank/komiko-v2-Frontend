@@ -1,6 +1,6 @@
 {
   "name": "komiko_v2",
-  "version": "0.1.0",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,9 +19,9 @@
     "autoprefixer": "10.4.14",
     "disqus-react": "^1.1.5",
     "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
+    "eslint-config-next": "13.2.4",
     "moment": "^2.29.4",
-    "next": "13.3.0",
+    "next": "13.2.4",
     "next-themes": "^0.2.1",
     "postcss": "8.4.21",
     "react": "18.2.0",
