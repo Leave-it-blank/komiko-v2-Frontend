@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['api.lynxscans.com'],
+    domains: ['*.lynxscans.com', '*.ondigitalocean.app', 'lynxscans.com'],
   },
   output: 'standalone',
   
