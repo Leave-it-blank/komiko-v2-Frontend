@@ -48,28 +48,13 @@ function Layout(props: {
           property="og:title"
           content="HomePage, where you can read comics for free."
         />
-        <meta
-          property="og:description"
-          content={` ${process.env.NEXT_PUBLIC_SITE_NAME}: HomePage, A place to read manga, manhua and manwha for free of cost.`}
-        />
+  
         <script
           async
           src={`https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG}`}
         />
 
-        <meta
-          property="og:url"
-          content={`${process.env.NEXT_PUBLIC_FRONTEND_URL}`}
-        />
-
-        <meta
-          name="twitter:title"
-          content={`${process.env.NEXT_PUBLIC_SITE_NAME} : HomePage, where you can read comics for free.`}
-        />
-        <meta
-          name="twitter:description"
-          content="webcomics: HomePage, A place to read manga, manhua and manwha for free of cost."
-        />
+ 
       </Head>
       <DeskTopNavBar />
       <div
